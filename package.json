@@ -31,7 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/BlackrockDigital/startbootstrap-creative.git"
+    "url": "https://github.com/rosemalejohn/rosemalejohn.git"
   },
   "dependencies": {
     "express": "^4.14.0"
