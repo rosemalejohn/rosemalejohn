@@ -1,0 +1,29 @@
+{
+  "name": "Rosemale-John",
+  "description": "Rosemale-John professional website",
+  "main": "index.js",
+  "authors": [
+    "Rosemale-John II C. Villacorta"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Laravel",
+    "Freelance",
+    "PHP",
+    "Javascript",
+    "Vuejs",
+    "Professional"
+  ],
+  "homepage": "https://github.com/rosemalejohn/rosemalejohn",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "scrollreveal": "^3.3.2",
+    "magnific-popup": "^1.1.0"
+  }
+}
