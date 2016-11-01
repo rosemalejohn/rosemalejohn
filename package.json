@@ -31,6 +31,7 @@
     "url": "https://github.com/rosemalejohn/rosemalejohn.git"
   },
   "dependencies": {
+    "bower": "^1.7.9",
     "express": "^4.14.0",
     "gulp": "^3.9.1"
   }
