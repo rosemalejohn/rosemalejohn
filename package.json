@@ -16,7 +16,14 @@
     "start": "node index.js",
     "postinstall": "bower install && gulp"
   },
-  "devDependencies": {
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rosemalejohn/rosemalejohn.git"
+  },
+  "dependencies": {
+    "bower": "^1.7.9",
+    "express": "^4.14.0",
+    "gulp": "^3.9.1",
     "bootstrap": "^3.3.7",
     "browser-sync": "^2.13.0",
     "gulp": "^3.9.1",
@@ -25,14 +32,5 @@
     "gulp-less": "^3.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.5.4"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rosemalejohn/rosemalejohn.git"
-  },
-  "dependencies": {
-    "bower": "^1.7.9",
-    "express": "^4.14.0",
-    "gulp": "^3.9.1"
   }
 }
