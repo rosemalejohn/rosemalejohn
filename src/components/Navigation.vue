@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">RosemaleJohn</a>
+      <span @click="navigateTop" class="navbar-brand js-scroll-trigger">RosemaleJohn</span>
       <button class="navbar-toggler navbar-toggler-right" type="button" @click="toggleMobileNavigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -45,6 +45,12 @@
     },
     methods: {
       /**
+       * Navigate page to top
+       */
+      navigateTop () {
+        window.scrollTo(0, 0)
+      },
+      /**
        * Collapse now if page is not at top
        */
       collapseNavbar () {
@@ -66,3 +72,9 @@
     }
   }
 </script>
+
+<style scoped>
+  .navbar-brand {
+    cursor: pointer;
+  }
+</style>
