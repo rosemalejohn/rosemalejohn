@@ -1,4 +1,6 @@
-# rosemalejohn
+# Rosemale-John Personal Website
+
+[![Build Status](https://travis-ci.org/rosemalejohn/rosemalejohn.svg?branch=master)](https://travis-ci.org/rosemalejohn/rosemalejohn)
 
 ## Project setup
 ```
