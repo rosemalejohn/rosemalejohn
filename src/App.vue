@@ -20,16 +20,6 @@ import Contact from '@/components/Contact'
 export default {
   name: 'app',
 
-  head: {
-    title: {
-      inner: 'Rosemale-John'
-    },
-    meta: [
-      { name: 'description', content: 'Web developer at Peoplewave, an HR Software as a Service company.' },
-      { property: 'og:image', content: '/img/me.png' }
-    ]
-  },
-
   components: {
     Navigation,
     AppHeader,
