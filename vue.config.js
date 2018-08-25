@@ -1,7 +1,7 @@
 module.exports = {
   pwa: {
     name: 'Rosemale-John',
-    themeColor: '#008080',
+    themeColor: '#4DBA87',
     msTileColor: '#000000'
   }
 }

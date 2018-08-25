@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <span @click="navigateTop" class="navbar-brand js-scroll-trigger">RosemaleJohn</span>
+      <span @click="navigateTop" class="navbar-brand js-scroll-trigger">RJ</span>
       <button class="navbar-toggler navbar-toggler-right" type="button" @click="toggleMobileNavigation">
         <span class="navbar-toggler-icon"></span>
       </button>
