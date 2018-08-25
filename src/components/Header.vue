@@ -10,7 +10,6 @@
         </div>
         <div class="col-lg-8 mx-auto">
           <p class="text-faded mb-5">A passionate web developer from The Philippines | <a href="https://laravel.com" target="_blank" class="text-laravel">Laravel</a> and <a href="https://vuejs.org" target="_blank" class="text-vue">Vue</a> guru</p>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Interested?</a>
         </div>
       </div>
     </div>

@@ -7,8 +7,11 @@
           <div class="project-category text-faded">
             {{ category }}
           </div>
-          <div class="project-name">
+          <div class="project-name font-weight-bold">
             {{ title }}
+          </div>
+          <div class="project-description">
+            {{ description }}
           </div>
         </div>
       </div>
@@ -20,6 +23,9 @@
   export default {
     props: {
       title: {
+        type: String
+      },
+      description: {
         type: String
       },
       category: {

@@ -2,9 +2,7 @@
   <div id="app">
     <navigation />
     <app-header />
-    <about />
     <portfolio />
-    <resume />
     <contact />
   </div>
 </template>
@@ -14,7 +12,6 @@ import Navigation from '@/components/Navigation'
 import AppHeader from '@/components/Header'
 import About from '@/components/About'
 import Portfolio from '@/components/Portfolio'
-import Resume from '@/components/Resume'
 import Contact from '@/components/Contact'
 
 export default {
@@ -25,7 +22,6 @@ export default {
     AppHeader,
     About,
     Portfolio,
-    Resume,
     Contact
   }
 }
