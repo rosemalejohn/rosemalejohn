@@ -9,7 +9,7 @@
           <hr>
         </div>
         <div class="col-lg-8 mx-auto">
-          <p class="text-faded mb-5">A passionate web developer from The Philippines | <a href="https://laravel.com" target="_blank" class="text-laravel">Laravel</a> and <a href="https://vuejs.org" target="_blank" class="text-vue">Vue</a> guru</p>
+          <p class="text-faded mb-5">A passionate web developer from The Philippines | <a href="https://laravel.com" target="_blank" class="text-laravel font-weight-bold">Laravel</a> and <a href="https://vuejs.org" target="_blank" class="text-vue font-weight-bold">Vue</a> guru</p>
         </div>
       </div>
     </div>
