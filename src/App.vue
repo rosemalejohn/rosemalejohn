@@ -10,7 +10,6 @@
 <script>
 import Navigation from '@/components/Navigation'
 import AppHeader from '@/components/Header'
-import About from '@/components/About'
 import Portfolio from '@/components/Portfolio'
 import Contact from '@/components/Contact'
 
@@ -20,7 +19,6 @@ export default {
   components: {
     Navigation,
     AppHeader,
-    About,
     Portfolio,
     Contact
   }
@@ -28,6 +26,6 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "assets/sass/bootstrap";
   @import "assets/sass/creative";
+  @import "assets/sass/bootstrap";
 </style>
