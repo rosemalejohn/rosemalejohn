@@ -8,7 +8,8 @@
             {{ category }}
           </div>
           <div class="project-name font-weight-bold">
-            {{ title }}
+            <img class="logo" v-if="logo" :src="logo" />
+            <div v-else>{{ title }}</div>
           </div>
           <div class="project-description">
             {{ description }}
@@ -36,7 +37,16 @@
       },
       cover: {
         type: String
+      },
+      logo: {
+        type: String
       }
     }
   }
 </script>
+
+<style scoped>
+  .logo {
+    width: 70px;
+  }
+</style>

@@ -21,7 +21,8 @@
             category="HR SaaS"
             description="Peoplewave is a SaaS HR Software that offers company performance appraisal and onboarding tool"
             cover="/img/portfolio/peoplewave.png"
-            class="col-lg-4 col-sm-12"
+            logo="/img/portfolio/peoplewave-logo.png"
+            class="col-lg-6 col-sm-12"
           />
           <project-box
             link="https://f45training.com"
@@ -29,7 +30,8 @@
             title="F45"
             category="Fitness"
             cover="/img/portfolio/f45.png"
-            class="col-lg-4 col-sm-12"
+            logo="/img/portfolio/f45-logo.png"
+            class="col-lg-6 col-sm-12"
           />
           <project-box
             link=""
@@ -37,7 +39,16 @@
             description="Allows users to rent or lease parking space"
             category="Online marketplace"
             cover="/img/portfolio/parkiee.jpg"
-            class="col-lg-4 col-sm-12"
+            class="col-lg-6 col-sm-12"
+          />
+          <project-box
+            link=""
+            title="Archipelago"
+            description="Australian architect landing page"
+            category="Wordpress website"
+            cover="/img/portfolio/archipelago.png"
+            logo="/img/portfolio/archipelago-logo.png"
+            class="col-lg-6 col-sm-12"
           />
         </div>
       </div>

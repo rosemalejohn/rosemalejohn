@@ -2,8 +2,9 @@
 .portfolio-box {
   position: relative;
   display: block;
-  max-width: 650px;
   margin: 0 auto;
+  max-height: 380px;
+  overflow: hidden;
   .portfolio-box-caption {
     position: absolute;
     bottom: 0;
@@ -21,6 +22,7 @@
       width: 100%;
       transform: translateY(-50%);
       text-align: center;
+      padding: 10px;
       .project-category,
       .project-name {
         padding: 0 15px;
