@@ -14,6 +14,9 @@
             <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="https://medium.com/@rosemalejohn" target="_blank">Blog</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="https://github.com/rosemalejohn" target="_blank">Github</a>
           </li>
           <li class="nav-item">
