@@ -7,7 +7,7 @@
             <h2 class="section-heading text-white">I've worked on amazing projects!</h2>
             <hr class="light my-4">
             <p class="text-faded mb-4">Being a web/software developer is exciting. Working with modern and new tools!</p>
-            <a class="btn btn-light btn-xl js-scroll-trigger" href="/files/RESUME.pdf" target="_blank">View my resume</a>
+            <a @click="viewResume" class="btn btn-light btn-xl js-scroll-trigger" href="/files/RESUME.pdf" target="_blank">View my resume</a>
           </div>
         </div>
       </div>
@@ -52,6 +52,16 @@
     name: 'portfolio',
     components: {
       ProjectBox
+    },
+    methods: {
+      viewResume () {
+        this.$ga.event({
+          eventCategory: 'resume',
+          eventAction: 'click',
+          eventLabel: 'View my resume',
+          eventValue: 'Resume'
+        })
+      }
     }
   }
 </script>

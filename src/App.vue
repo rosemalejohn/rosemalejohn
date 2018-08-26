@@ -21,6 +21,14 @@ export default {
     AppHeader,
     Portfolio,
     Contact
+  },
+
+  mounted () {
+    this.$ga.page({
+      page: '/',
+      title: 'Home Page',
+      location: window.location.href
+    })
   }
 }
 </script>
