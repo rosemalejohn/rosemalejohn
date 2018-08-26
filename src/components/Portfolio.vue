@@ -42,7 +42,7 @@
             class="col-lg-6 col-sm-12"
           />
           <project-box
-            link=""
+            link="https://archipelago.com.au"
             title="Archipelago"
             description="Australian architect landing page"
             category="Wordpress website"
