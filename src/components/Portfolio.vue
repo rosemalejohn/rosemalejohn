@@ -39,6 +39,7 @@
             description="Allows users to rent or lease parking space"
             category="Online marketplace"
             cover="/img/portfolio/parkiee.jpg"
+            logo="/img/portfolio/parkiee-logo.png"
             class="col-lg-6 col-sm-12"
           />
           <project-box
