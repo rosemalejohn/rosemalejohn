@@ -17,8 +17,7 @@
         this.$ga.event({
           eventCategory: 'email',
           eventAction: 'click',
-          eventLabel: 'Start a project',
-          eventValue: 'Proposal'
+          eventLabel: 'Start a project'
         })
       }
     }

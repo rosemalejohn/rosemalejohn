@@ -70,8 +70,7 @@
         this.$ga.event({
           eventCategory: 'resume',
           eventAction: 'click',
-          eventLabel: 'View my resume',
-          eventValue: 'Resume'
+          eventLabel: 'View my resume'
         })
       }
     }
