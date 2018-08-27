@@ -7,7 +7,7 @@
             <h2 class="section-heading text-white">I've worked on amazing projects!</h2>
             <hr class="light my-4">
             <p class="text-faded mb-4">Being a web/software developer is exciting. Working with modern and new tools!</p>
-            <a @click="viewResume" class="btn btn-light btn-xl js-scroll-trigger" href="/files/RESUME.pdf" target="_blank">View my resume</a>
+            <a @click="viewResume" class="btn btn-light btn-xl js-scroll-trigger" href="https://drive.google.com/file/d/0B85Zig_S7wy2c19Od0lvNHJWdGM/view?usp=sharing" target="_blank">View my resume</a>
           </div>
         </div>
       </div>

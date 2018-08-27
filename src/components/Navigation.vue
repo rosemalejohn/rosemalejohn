@@ -57,9 +57,9 @@
         const navbar = document.getElementById('mainNav')
 
         if (window.pageYOffset > 100) {
-          navbar.classList.add("navbar-shrink")
+          navbar.classList.add('navbar-shrink')
         } else {
-          navbar.classList.remove("navbar-shrink")
+          navbar.classList.remove('navbar-shrink')
         }
       },
 
