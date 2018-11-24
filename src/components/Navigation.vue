@@ -37,7 +37,12 @@ export default class Navigation extends Vue {
 
   private mounted() {
     window.addEventListener('scroll', this.collapseNavbar);
+
+    document.querySelectorAll('.nav-item > .nav-link').forEach((menu) => {
+      menu.addEventListener('click', this.toggleMobileNavigation);
+    });
   }
+
   /**
    * Navigate page to top
    */
