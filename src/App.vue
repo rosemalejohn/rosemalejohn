@@ -7,30 +7,23 @@
   </div>
 </template>
 
-<script>
-import Navigation from '@/components/Navigation'
-import AppHeader from '@/components/Header'
-import Portfolio from '@/components/Portfolio'
-import Contact from '@/components/Contact'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import Navigation from '@/components/Navigation.vue';
+import AppHeader from '@/components/Header.vue';
+import Portfolio from '@/components/Portfolio.vue';
+import Contact from '@/components/Contact.vue';
 
-export default {
+@Component({
   name: 'app',
-
   components: {
     Navigation,
     AppHeader,
     Portfolio,
-    Contact
+    Contact,
   },
-
-  mounted () {
-    this.$ga.page({
-      page: '/',
-      title: 'Home Page',
-      location: window.location.href
-    })
-  }
-}
+})
+export default class App extends Vue {}
 </script>
 
 <style lang="scss">

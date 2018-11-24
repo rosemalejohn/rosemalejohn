@@ -28,49 +28,45 @@
   </nav>
 </template>
 
-<script>
-  export default {
-    data () {
-      return {
-        showMobileMenu: false
-      }
-    },
-    mounted () {
-      window.addEventListener('scroll', this.collapseNavbar)
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
 
-      // close mobile nav menu when link is clicked
-      document.querySelectorAll('.nav-item > .nav-link').forEach((menu) => {
-        menu.addEventListener('click', this.toggleMobileNavigation)
-      })
-    },
-    methods: {
-      /**
-       * Navigate page to top
-       */
-      navigateTop () {
-        window.scrollTo(0, 0)
-      },
-      /**
-       * Collapse now if page is not at top
-       */
-      collapseNavbar () {
-        const navbar = document.getElementById('mainNav')
+@Component
+export default class Navigation extends Vue {
+  private showMobileMenu: boolean = false;
 
-        if (window.pageYOffset > 100) {
-          navbar.classList.add('navbar-shrink')
-        } else {
-          navbar.classList.remove('navbar-shrink')
-        }
-      },
+  private mounted() {
+    window.addEventListener('scroll', this.collapseNavbar);
+  }
+  /**
+   * Navigate page to top
+   */
+  private navigateTop(): void {
+    window.scrollTo(0, 0);
+  }
 
-      /**
-       * Toggle hide/show mobile navigation
-       */
-      toggleMobileNavigation () {
-        this.showMobileMenu = !this.showMobileMenu
+  /**
+   * Collapse now if page is not at top
+   */
+  private collapseNavbar(): void {
+    const navbar = document.getElementById('mainNav');
+
+    if (navbar != null) {
+      if (window.pageYOffset > 100) {
+        navbar.classList.add('navbar-shrink');
+      } else {
+        navbar.classList.remove('navbar-shrink');
       }
     }
   }
+
+  /**
+   * Toggle hide/show mobile navigation
+   */
+  private toggleMobileNavigation(): void {
+    this.showMobileMenu = !this.showMobileMenu;
+  }
+}
 </script>
 
 <style scoped>

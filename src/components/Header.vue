@@ -16,6 +16,15 @@
   </header>
 </template>
 
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+
+@Component
+export default class Header extends Vue {
+
+}
+</script>
+
 <style scoped>
   .text-laravel {
     color: #FB503B;

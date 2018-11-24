@@ -20,29 +20,18 @@
   </div>
 </template>
 
-<script>
-  export default {
-    props: {
-      title: {
-        type: String
-      },
-      description: {
-        type: String
-      },
-      category: {
-        type: String
-      },
-      link: {
-        type: String
-      },
-      cover: {
-        type: String
-      },
-      logo: {
-        type: String
-      }
-    }
-  }
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+
+@Component
+export default class ProjectBox extends Vue {
+  @Prop() private title!: string;
+  @Prop() private description!: string;
+  @Prop() private category!: string;
+  @Prop() private link!: string;
+  @Prop() private cover!: string;
+  @Prop() private logo!: string;
+}
 </script>
 
 <style scoped>

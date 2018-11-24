@@ -57,22 +57,22 @@
   </div>
 </template>
 
-<script>
-  import ProjectBox from './ProjectBox'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import ProjectBox from '@/components/ProjectBox.vue';
 
-  export default {
-    name: 'portfolio',
-    components: {
-      ProjectBox
-    },
-    methods: {
-      viewResume () {
-        this.$ga.event({
-          eventCategory: 'resume',
-          eventAction: 'click',
-          eventLabel: 'View my resume'
-        })
-      }
-    }
+@Component<Portfolio>({
+  components: {
+    ProjectBox,
+  },
+})
+export default class Portfolio extends Vue {
+  private viewResume(): void {
+    Vue.prototype.$ga.event({
+      eventCategory: 'resume',
+      eventAction: 'click',
+      eventLabel: 'View my resume',
+    });
   }
+}
 </script>

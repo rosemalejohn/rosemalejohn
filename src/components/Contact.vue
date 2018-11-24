@@ -8,18 +8,17 @@
   </section>
 </template>
 
-<script>
-  export default {
-    name: 'contact',
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
 
-    methods: {
-      startProject () {
-        this.$ga.event({
-          eventCategory: 'email',
-          eventAction: 'click',
-          eventLabel: 'Start a project'
-        })
-      }
-    }
+@Component
+export default class Contact extends Vue {
+  private startProject(): void {
+    Vue.prototype.$ga.event({
+      eventCategory: 'email',
+      eventAction: 'click',
+      eventLabel: 'Start a project',
+    });
   }
+}
 </script>
