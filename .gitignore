@@ -23,4 +23,6 @@ yarn-error.log*
 .firebase/
 
 /src/main.js.map
+/src/main.js
 /src/registerServiceWorker.js.map
+/src/registerServiceWorker.js
