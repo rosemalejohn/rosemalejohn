@@ -78,4 +78,8 @@ export default class Navigation extends Vue {
   .navbar-brand {
     cursor: pointer;
   }
+
+  .navbar-toggler {
+    border-color: transparent !important;
+  }
 </style>
