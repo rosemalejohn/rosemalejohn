@@ -3,7 +3,7 @@ A web developer with 7 years of experience. My focus has been on web
 development, and I have successfully contributed to projects of different sizes and
 types. These include SaaS applications, dating apps, 2tness apps, BkB projects, PWA
 websites, and hybrid mobile apps. In addition to my expertise in development, I also
-have experience in DevOps tas/s li/e CI CD, server management, and monitoring.\
+have experience in DevOps tas/s li/e CI CD, server management, and monitoring.
 
 
 ## I am using these tools
