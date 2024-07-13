@@ -5,6 +5,7 @@ import { Providers } from "./providers";
 import Header from "./components/Header";
 import { twMerge } from "tailwind-merge";
 import Footer from "./components/Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 const urbanist = Urbanist({ subsets: ["latin"] });
 
@@ -54,6 +55,8 @@ export default function RootLayout({
 						</div>
 					</div>
 				</Providers>
+
+				<Analytics />
 			</body>
 		</html>
 	);
