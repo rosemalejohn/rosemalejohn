@@ -73,6 +73,15 @@ const projects: Project[] = [
 			"Parkiee is an app that connects drivers with available parking spaces for easy, real-time rentals.",
 		stack: ["vue", "node", "aws"],
 	},
+	{
+		name: "Archipelago",
+		description:
+			"Archipelago is an award-winning Brisbane Architecture, Urban Design and Landscape Architecture Practice creating great cities and buildings for our future.",
+		stack: ["wordpress"],
+		image: "/archipelago.png",
+		link: "https://archipelago.com.au/",
+		linkTitle: "archipelago.com.au",
+	},
 ];
 
 export default function ProjectList() {
