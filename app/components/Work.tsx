@@ -1,7 +1,6 @@
 "use client";
 
 import { Button, Image } from "@nextui-org/react";
-import DownloadIcon from "./icons/DownloadIcon";
 import WorkIcon from "./icons/WorkIcon";
 import { useRouter } from "next/navigation";
 

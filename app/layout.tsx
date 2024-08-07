@@ -14,17 +14,11 @@ const siteDescription: string = "Hi, I'm John, a full stack web developer.";
 export const metadata: Metadata = {
 	title: "Rosemale-John",
 	description: siteDescription,
+	metadataBase: new URL("https://rosemalejohn.me/"),
 	openGraph: {
 		siteName: "Rosemale-John",
 		description: siteDescription,
-		images: [
-			{
-				url: "/me.png",
-				width: 512,
-				height: 512,
-				alt: "Rosemale-John",
-			},
-		],
+		images: ["/me.png"],
 	},
 };
 

@@ -55,6 +55,7 @@ export default function Home() {
 								<div className="mt-6 flex gap-6 text-base text-slate-600 dark:text-white">
 									{socials.map((social) => (
 										<Link
+											data-testid={social.name}
 											key={social.name}
 											target="_blank"
 											className="group -m-1 p-1"
@@ -73,7 +74,7 @@ export default function Home() {
 				<Gallery />
 			</div> */}
 			<div className="sm:px-8 mt-24 md:mt-28 mb-12">
-				<Work />
+				<Work data-testid="work" />
 			</div>
 		</>
 	);

@@ -35,7 +35,10 @@ export default function Header() {
 									<div className="flex flex-1" />
 									<div className="flex flex-1 justify-end md:justify-center">
 										<div className="md:hidden">
-											<HeaderDropdownMenu navigations={navigations} />
+											<HeaderDropdownMenu
+												data-testid="header-dropdown-menu"
+												navigations={navigations}
+											/>
 										</div>
 										<nav className="pointer-events-auto hidden md:block">
 											<ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-slate-800 shadow-lg shadow-slate-800/5 ring-1 ring-slate-900/5 backdrop-blur dark:bg-slate-800/90 dark:text-slate-200 dark:ring-white/10">
@@ -53,7 +56,7 @@ export default function Header() {
 										</nav>
 									</div>
 									<div className="flex justify-end md:flex-1">
-										<ThemeSelector />
+										<ThemeSelector data-testid="theme-selector" />
 									</div>
 								</div>
 							</div>
