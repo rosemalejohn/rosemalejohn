@@ -10,6 +10,14 @@ const projects: Project[] = [
 		image: "/naughtytalk.PNG",
 		stack: ["react", "next", "tailwind", "typescript", "laravel", "aws"],
 	},
+  {
+		name: "WeCollect",
+		description: "An e-commerce platform for trading cards with social features to connect collectors.",
+		link: "https://wecollect.com.au/",
+		linkTitle: "wecollect.com.au",
+		image: "/wecollect.png",
+		stack: ["vue", "nuxt", "tailwind", "typescript", "laravel", "aws"],
+	},
 	{
 		name: "Valued Business",
 		description:
