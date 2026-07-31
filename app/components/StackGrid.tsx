@@ -1,38 +1,47 @@
-import { layerMeta, layerOrder, toolsByLayer } from "../data/stack";
+import { type Layer, layerMeta, layerOrder, toolsByLayer } from "../data/stack";
 
 /**
- * The stack, grouped into the three disciplines it splits along — Frontend,
- * Backend, DevOps — with each tool set as a chip. The grouping and the names
- * are read out of the same map the project seams use; the DevOps band also
- * lists infrastructure used across the work rather than any one project.
+ * The stack, grouped into the four strata the whole site is cut into — Frontend,
+ * Backend, Integrations, DevOps. Each stratum is a row: a depth swatch in its
+ * real layer color (the same ramp the seams read, so the list doubles as the
+ * cross-section's legend), the discipline name, and the tools set as plain type.
+ * No enclosures — the tools sit in an aligned grid, so the columns do the
+ * separating and every multi-word name keeps its own cell.
  */
+
+// Static classes so Tailwind sees them; matches how Seam.tsx maps layer colors.
+const swatch: Record<Layer, string> = {
+	surface: "bg-layer-surface",
+	server: "bg-layer-server",
+	services: "bg-layer-services",
+	ground: "bg-layer-ground",
+};
 
 export default function StackGrid({ delay = 0 }: { delay?: number }) {
 	const tools = toolsByLayer();
 
 	return (
-		<div className="flex flex-col gap-10">
+		<dl className="flex flex-col">
 			{layerOrder.map((layer, index) => (
 				<div
 					key={layer}
-					className="rise"
+					className="rise grid gap-x-8 gap-y-4 border-t border-line py-6 first:border-t-0 first:pt-0 sm:grid-cols-[160px_1fr]"
 					style={{ animationDelay: `${delay + index * 90}ms` }}
 				>
-					<p className="font-mono text-[11px] uppercase tracking-label text-muted">
+					<dt className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-label text-muted">
+						<span
+							aria-hidden="true"
+							className={`h-1.5 w-1.5 rounded-[1px] ${swatch[layer]}`}
+						/>
 						{layerMeta[layer].category}
-					</p>
-					<ul className="mt-4 flex flex-wrap gap-2.5">
+					</dt>
+					<dd className="grid grid-cols-2 gap-x-6 gap-y-2.5 font-mono text-[13px] leading-none text-ink-soft sm:grid-cols-3 lg:grid-cols-4">
 						{tools[layer].map((tool) => (
-							<li
-								key={tool}
-								className="rounded-[3px] border border-line bg-surface px-3.5 py-2 font-mono text-[13px] leading-none text-ink-soft"
-							>
-								{tool}
-							</li>
+							<span key={tool}>{tool}</span>
 						))}
-					</ul>
+					</dd>
 				</div>
 			))}
-		</div>
+		</dl>
 	);
 }

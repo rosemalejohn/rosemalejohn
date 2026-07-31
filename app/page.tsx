@@ -1,10 +1,5 @@
 import Link from "next/link";
-import type { ReactNode } from "react";
 import Container from "./components/Container";
-import GithubIcon from "./components/icons/GithubIcon";
-import InstagramIcon from "./components/icons/InstagramIcon";
-import LinkedInIcon from "./components/icons/LinkedInIcon";
-import TwitterIcon from "./components/icons/TwitterIcon";
 import ProjectRow from "./components/ProjectRow";
 import Recommendations from "./components/Recommendations";
 import SectionHeading from "./components/SectionHeading";
@@ -16,30 +11,13 @@ import { toolsByLayer } from "./data/stack";
 type Social = {
 	name: string;
 	href: string;
-	icon: ReactNode;
 };
 
 const socials: Social[] = [
-	{
-		name: "Github",
-		href: "https://github.com/rosemalejohn",
-		icon: <GithubIcon />,
-	},
-	{
-		name: "LinkedIn",
-		href: "https://linkedin.com/in/rosemalejohn",
-		icon: <LinkedInIcon />,
-	},
-	{
-		name: "Twitter",
-		href: "https://twitter.com/rosemalejohn",
-		icon: <TwitterIcon />,
-	},
-	{
-		name: "Instagram",
-		href: "https://instagram.com/rosemalejohn",
-		icon: <InstagramIcon />,
-	},
+	{ name: "Github", href: "https://github.com/rosemalejohn" },
+	{ name: "LinkedIn", href: "https://linkedin.com/in/rosemalejohn" },
+	{ name: "Twitter", href: "https://twitter.com/rosemalejohn" },
+	{ name: "Instagram", href: "https://instagram.com/rosemalejohn" },
 ];
 
 const email = "rosemalejohn@gmail.com";
@@ -113,7 +91,7 @@ export default function Home() {
 					</p>
 
 					<div
-						className="rise mt-8 flex gap-2"
+						className="rise mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-label"
 						style={{ animationDelay: "210ms" }}
 					>
 						{socials.map((social) => (
@@ -123,10 +101,15 @@ export default function Home() {
 								href={social.href}
 								target="_blank"
 								rel="noreferrer"
-								aria-label={social.name}
-								className="flex h-11 w-11 items-center justify-center rounded-[3px] border border-line text-[17px] text-muted transition-colors hover:border-accent hover:text-accent"
+								className="group inline-flex items-center gap-1 text-muted transition-colors hover:text-accent"
 							>
-								{social.icon}
+								{social.name}
+								<span
+									aria-hidden="true"
+									className="text-line-strong transition-colors group-hover:text-accent"
+								>
+									↗
+								</span>
 							</Link>
 						))}
 					</div>
@@ -145,7 +128,7 @@ export default function Home() {
 			<section className="py-16 sm:py-20">
 				<Container>
 					<SectionHeading
-						label="Selected work"
+						label="Projects"
 						meta={`${featuredProjects.length} of ${projects.length}`}
 					/>
 					<ul className="mt-2 border-b border-line">
@@ -165,7 +148,7 @@ export default function Home() {
 
 			<section className="py-16 sm:py-20">
 				<Container>
-					<SectionHeading label="Employment" meta="4 roles" />
+					<SectionHeading label="Where I've Worked" meta="4 roles" />
 					<div className="mt-2">
 						<Work />
 					</div>
@@ -189,7 +172,7 @@ export default function Home() {
 							Contact
 						</p>
 						<h2 className="mt-6 max-w-[18ch] font-display text-[clamp(1.9rem,4vw,3rem)] font-extrabold leading-[1.02] tracking-[-0.03em]">
-							Open to new work.
+							Open to work.
 						</h2>
 						<p className="mt-5 max-w-[48ch] text-[17px] leading-[1.65] text-on-deep-muted">
 							Contract or full time, remote from Philippines. UTC+8, which is a

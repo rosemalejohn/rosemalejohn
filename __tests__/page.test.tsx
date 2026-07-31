@@ -14,10 +14,9 @@ beforeAll(() => {
 
 test("home page should have necessary text", () => {
 	const texts: string[] = [
-		"Full-stack AI engineer · Philippines · UTC+8",
-		"Available for work",
-		"I build all the way down.",
-		"Open to new work.",
+		"Full-stack AI engineer · Philippines",
+		"I build down to bedrock.",
+		"Open to work.",
 	];
 
 	texts.forEach((text: string) => {
@@ -29,7 +28,6 @@ test("home page should link every product named in the hero", () => {
 	const shipped: string[] = [
 		"RedThread",
 		"TieBreak",
-		"WeCollect",
 		"Valued",
 		"Move With Us",
 		"F45 Training",
