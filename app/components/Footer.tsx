@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Container from "./Container";
 
 type FooterLink = {
 	name: string;
@@ -10,35 +11,36 @@ const links: FooterLink[] = [
 	{ name: "Projects", href: "/projects" },
 ];
 
+/**
+ * The bottom of the cut. Every page ends in the deep block, whatever sits
+ * above it, so scrolling down always arrives at the same ground.
+ */
 export default function Footer() {
 	return (
-		<footer className="mt-32 flex-none">
-			<div className="sm:px-8">
-				<div className="mx-auto w-full max-w-7xl lg:px-8">
-					<div className="border-t border-slate-100 pb-16 pt-10 dark:border-slate-700/40">
-						<div className="relative px-4 sm:px-8 lg:px-12">
-							<div className="mx-auto max-w-2xl lg:max-w-5xl">
-								<div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-									<div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-slate-800 dark:text-slate-200">
-										{links.map((link) => (
-											<Link
-												key={link.href}
-												className="transition hover:text-yellow-500 dark:hover:text-yellow-400"
-												href={link.href}
-											>
-												{link.name}
-											</Link>
-										))}
-									</div>
-									<p className="text-sm text-slate-400 dark:text-slate-500">
-										Rosemale-John
-									</p>
-								</div>
-							</div>
-						</div>
+		<footer className="on-deep bg-deep py-10 text-on-deep">
+			<Container>
+				<div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+					<p className="font-display font-condensed text-[15px] font-bold uppercase tracking-[0.12em]">
+						Rosemale-John
+					</p>
+
+					<div className="-ml-3 flex items-center gap-1 sm:ml-0">
+						{links.map((link) => (
+							<Link
+								key={link.href}
+								href={link.href}
+								className="rounded-[3px] px-3 py-1.5 font-mono text-[11px] uppercase tracking-label text-on-deep-muted transition-colors hover:text-on-deep-accent"
+							>
+								{link.name}
+							</Link>
+						))}
 					</div>
+
+					<p className="font-mono text-[11px] uppercase tracking-label text-on-deep-muted">
+						UTC+8
+					</p>
 				</div>
-			</div>
+			</Container>
 		</footer>
 	);
 }

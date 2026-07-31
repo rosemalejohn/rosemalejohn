@@ -1,18 +1,58 @@
 import type { Metadata } from "next";
-import { Urbanist } from "next/font/google";
+import {
+	Geist,
+	Geist_Mono,
+	Geist_Pixel,
+	Source_Serif_4,
+} from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
-import { twMerge } from "tailwind-merge";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { Providers } from "./providers";
 
-const urbanist = Urbanist({ subsets: ["latin"] });
+// Four faces, four jobs.
 
-const siteDescription: string = "Hi, I'm John, a full stack web developer.";
+// Body/UI: Geist. The base voice — paragraphs, navigation, card titles,
+// buttons. A neutral grotesk that reads as interface without shouting.
+const sans = Geist({
+	subsets: ["latin"],
+	variable: "--font-sans",
+	display: "swap",
+});
+
+// Display: Geist Pixel (Square). Page titles, section number labels and the
+// big stat values. Its ELSH axis stays variable so the pixel shape can flex.
+const display = Geist_Pixel({
+	subsets: ["latin"],
+	axes: ["ELSH"],
+	variable: "--font-display",
+	display: "swap",
+});
+
+// Technical: Geist Mono. Labels, timestamps, tags, footer links, nav items —
+// anything that should read as machine-set rather than written.
+const mono = Geist_Mono({
+	subsets: ["latin"],
+	weight: ["400", "500"],
+	variable: "--font-mono",
+	display: "swap",
+});
+
+// Long-form: Source Serif 4. Held in reserve for article/blog body text only;
+// it never sets interface copy.
+const serif = Source_Serif_4({
+	subsets: ["latin"],
+	weight: ["300", "400", "500", "600"],
+	variable: "--font-serif",
+	display: "swap",
+});
+
+const siteDescription: string =
+	"Rosemale-John is a full-stack engineer in the Philippines. Laravel and AWS underneath, Vue, Nuxt, React and Next on top. Shipping production products since 2016.";
 
 export const metadata: Metadata = {
-	title: "Rosemale-John",
+	title: "Full-stack AI Engineer | Rosemale-John",
 	description: siteDescription,
 	metadataBase: new URL("https://rosemalejohn.me/"),
 	openGraph: {
@@ -31,24 +71,16 @@ export default function RootLayout({
 		// next-themes sets `class` and `style` on <html> before hydration; React 19
 		// reports that as a mismatch without suppressHydrationWarning.
 		<html lang="en" suppressHydrationWarning>
-			<body className={twMerge(urbanist.className)}>
+			<body
+				className={`${sans.variable} ${display.variable} ${mono.variable} ${serif.variable} font-sans`}
+			>
 				<Providers>
-					<div className="flex h-full min-h-screen bg-slate-50 dark:bg-slate-950">
-						<div className="flex w-full">
-							<div className="fixed inset-0 flex justify-center sm:px-8">
-								<div className="flex w-full max-w-7xl lg:px-8">
-									<div className="w-full bg-white ring-1 ring-slate-100 dark:bg-slate-900 dark:ring-slate-300/20" />
-								</div>
-							</div>
+					<div className="flex min-h-screen flex-col">
+						<Header />
 
-							<div className="relative flex w-full flex-col">
-								<Header />
+						<main className="flex-auto">{children}</main>
 
-								<main className="flex-auto">{children}</main>
-
-								<Footer />
-							</div>
-						</div>
+						<Footer />
 					</div>
 				</Providers>
 

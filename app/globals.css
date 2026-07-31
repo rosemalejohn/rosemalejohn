@@ -1,23 +1,214 @@
+/* biome-ignore-all lint/complexity/noImportantStyles: the reduced-motion block at the end has to beat utility classes and inline animation values, which is exactly what !important is for */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * The page is a cross-section. Tokens are named for what they are in that
+ * section — the exposed face you read on, the four strata, and the deep block
+ * the page ends in. Opacity modifiers are never applied to these vars, so every
+ * tone a component needs exists here as its own token.
+ *
+ * The palette is monochrome: one graphite ramp, no second hue anywhere. What
+ * colour would have carried — emphasis, state, depth — is carried by position
+ * on the ramp instead, so every distinction on the page is a difference in
+ * lightness and every token below is a stop on the same scale. The neutral runs
+ * a few points cool, which keeps it graphite rather than the flat grey a
+ * desaturated default lands on.
+ *
+ * Light is the primary direction and deliberately sits short of white: the
+ * paper is a dim limestone around L*88, bright enough to read at a glance and
+ * dark enough to read for an hour.
+ */
 :root {
-	--foreground-rgb: 0, 0, 0;
-	--background-start-rgb: 214, 219, 220;
-	--background-end-rgb: 255, 255, 255;
+	--paper: #dfe1e2;
+	--surface: #d6d9da;
+	--ink: #15181a;
+	--ink-soft: #3a4043;
+	--muted: #565d60;
+	--line: #c6cacb;
+	--line-strong: #adb2b4;
+	/* The end of the ramp, held back from body text so hover still has somewhere
+	 * to go. Pure black is the only tone on the page nothing else uses. */
+	--accent: #000000;
+	--on-accent: #eef0f1;
+	/* Exactly one job on this site: availability status. With no hue to spend it
+	 * reads by weight — full ink beside the muted line it sits next to. */
+	--oxide: #15181a;
+
+	/* Ink at ~1.5%, which is the whole budget the board texture gets — enough to
+	 * feel the board is there without the circuit reading as a diagram. */
+	--circuit: #15181a04;
+
+	/* The four strata. Only the section diagram and the seam chips use these.
+	 * Evenly spaced down the ramp, so depth reads as a gradient by itself.
+	 * Services sits between the backend and the ground it runs on — the band the
+	 * server reaches out into. */
+	--layer-surface: #b8bdbf;
+	--layer-server: #656b6e;
+	--layer-services: #474d50;
+	--layer-ground: #2a2f32;
+	--on-layer-surface: #15181a;
+	--on-layer-deep: #e9ebec;
+	--seam-void: #ced2d3;
+
+	/* The block the page ends in, below every section. */
+	--deep: #2a2f32;
+	--on-deep: #e9ebec;
+	--on-deep-muted: #a9aeb0;
+	--on-deep-accent: #ffffff;
+
+	color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--foreground-rgb: 255, 255, 255;
-		--background-start-rgb: 0, 0, 0;
-		--background-end-rgb: 0, 0, 0;
+.dark {
+	--paper: #090a0b;
+	--surface: #131516;
+	--ink: #e6e9ea;
+	--ink-soft: #b8bcbe;
+	--muted: #848a8d;
+	--line: #272b2d;
+	--line-strong: #383d3f;
+	/* The ramp runs the other way here, so the accent is the far end again. */
+	--accent: #ffffff;
+	--on-accent: #0c0f10;
+	--oxide: #e6e9ea;
+
+	/* Light on dark carries further than dark on light, so this matches the light
+	 * theme's alpha rather than running under it. */
+	--circuit: #e6e9ea04;
+
+	--layer-surface: #a0a6a9;
+	--layer-server: #565c5f;
+	--layer-services: #404648;
+	--layer-ground: #2b3032;
+	--on-layer-surface: #15181a;
+	--on-layer-deep: #e6e9ea;
+	--seam-void: #232728;
+
+	/* Deeper than the paper in both themes, so the page always ends downward. */
+	--deep: #030405;
+	--on-deep: #dee1e2;
+	--on-deep-muted: #8b9093;
+	--on-deep-accent: #ffffff;
+
+	color-scheme: dark;
+}
+
+@layer base {
+	body {
+		background-color: var(--paper);
+		color: var(--ink);
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+	}
+
+	/*
+	 * The board the section is cut out of: public/substrate.svg, tiled behind
+	 * the whole page. It is a mask rather than an image, so the one colour it
+	 * has is --circuit and both themes stay in step. Fixed, because the texture
+	 * belongs to the substrate the page sits on, not to the page — it holds
+	 * still while the strata scroll over it. z-index -1 keeps it under every
+	 * section, including the deep block, which covers it completely.
+	 */
+	body::before {
+		content: "";
+		position: fixed;
+		inset: 0;
+		z-index: -1;
+		pointer-events: none;
+		background-color: var(--circuit);
+		mask: url("/substrate.svg") 0 0 / 200px 200px repeat;
+	}
+
+	/* On a phone a 200px tile is a third of the screen, which reads as wallpaper
+	 * rather than grain. Shrink it so the density stays roughly constant. */
+	@media (max-width: 640px) {
+		body::before {
+			mask-size: 140px 140px;
+		}
+	}
+
+	::selection {
+		background-color: var(--accent);
+		color: var(--on-accent);
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 3px;
+		border-radius: 2px;
+	}
+
+	/* Inside the deep block the page-level accent has no contrast, so the focus
+	 * ring switches to the tone that does. */
+	.on-deep :focus-visible {
+		outline-color: var(--on-deep-accent);
 	}
 }
 
 @layer utilities {
+	/*
+	 * Condensed setting for any face that carries a `wdth` axis. font-stretch
+	 * drives it directly; font-variation-settings would reset the weight axis in
+	 * some browsers. (Geist Pixel has no `wdth` axis, so it stays at its natural
+	 * width — the utility is a no-op there and reserved for widthed faces.)
+	 */
+	.font-condensed {
+		font-stretch: 82%;
+	}
+
+	.font-semi-condensed {
+		font-stretch: 92%;
+	}
+
 	.text-balance {
 		text-wrap: balance;
+	}
+
+	.text-pretty {
+		text-wrap: pretty;
+	}
+}
+
+/* Page-load sequence: one orchestrated moment, staggered by inline delay. */
+@keyframes rise {
+	from {
+		opacity: 0;
+		transform: translateY(14px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.rise {
+	animation: rise 0.75s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+/* The strata reveal: each band is cut open downward, in order, like a core
+ * sample coming out of the ground. */
+@keyframes cut {
+	from {
+		clip-path: inset(0 0 100% 0);
+	}
+	to {
+		clip-path: inset(0 0 0 0);
+	}
+}
+
+.cut {
+	animation: cut 0.6s cubic-bezier(0.33, 0.8, 0.4, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	::before,
+	::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
 	}
 }

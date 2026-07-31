@@ -1,8 +1,8 @@
 import Link from "next/link";
+import { layerOrder } from "../data/stack";
 import type { NavigationItem } from "../types/NavigationItem";
-import HeaderAvatar from "./HeaderAvatar";
-import HeaderDropdownMenu from "./HeaderDropdownMenu";
-import ThemeSelector from "./ThemeSelector";
+import Container from "./Container";
+import Seam from "./Seam";
 
 const navigations: NavigationItem[] = [
 	{ name: "Home", href: "/" },
@@ -11,59 +11,39 @@ const navigations: NavigationItem[] = [
 
 export default function Header() {
 	return (
-		<header className="pointer-events-none relative z-50 flex flex-none flex-col">
-			<div className="order-last mt-[calc(theme(spacing.16)-theme(spacing.3))]" />
-			<div className="sm:px-8 top-0 order-last -mb-3 pt-3">
-				<div className="mx-auto w-full max-w-7xl lg:px-8">
-					<div className="relative px-4 sm:px-8 lg:px-12">
-						<div className="mx-auto max-w-2xl lg:max-w-5xl">
-							<div className="top-[var(--avatar-top,theme(spacing.3))] w-full">
-								<div className="relative">
-									<HeaderAvatar />
-								</div>
-							</div>
-						</div>
+		<header className="sticky top-0 z-50 border-b border-line bg-paper">
+			<Container>
+				<div className="flex h-16 items-center justify-between gap-4 sm:gap-6">
+					{/* The mark is a seam with every stratum filled — the claim the rest
+					    of the page then has to back up. */}
+					<Link
+						href="/"
+						className="flex flex-none items-center gap-2.5 sm:gap-3"
+					>
+						<Seam layers={layerOrder} className="h-6 w-1.5 rounded-[2px]" />
+						<span className="whitespace-nowrap font-display font-condensed text-[13px] font-bold uppercase tracking-[0.1em] text-ink sm:text-[15px] sm:tracking-[0.12em]">
+							Rosemale-John
+						</span>
+					</Link>
+
+					<div className="flex items-center gap-1 sm:gap-4">
+						<nav>
+							<ul className="flex items-center gap-0.5 sm:gap-1">
+								{navigations.map((navigation) => (
+									<li key={navigation.name}>
+										<Link
+											href={navigation.href}
+											className="block rounded-[3px] px-2 py-1.5 font-mono text-[11px] uppercase tracking-label text-muted transition-colors hover:bg-surface hover:text-accent sm:px-3"
+										>
+											{navigation.name}
+										</Link>
+									</li>
+								))}
+							</ul>
+						</nav>
 					</div>
 				</div>
-			</div>
-			<div className="top-0 z-10 h-16 pt-6">
-				<div className="sm:px-8 top-[var(--header-top,theme(spacing.6))] w-full">
-					<div className="mx-auto w-full max-w-7xl lg:px-8">
-						<div className="relative px-4 sm:px-8 lg:px-12">
-							<div className="mx-auto max-w-2xl lg:max-w-5xl">
-								<div className="relative flex gap-4">
-									<div className="flex flex-1" />
-									<div className="flex flex-1 justify-end md:justify-center">
-										<div className="md:hidden">
-											<HeaderDropdownMenu
-												data-testid="header-dropdown-menu"
-												navigations={navigations}
-											/>
-										</div>
-										<nav className="pointer-events-auto hidden md:block">
-											<ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-slate-800 shadow-lg shadow-slate-800/5 ring-1 ring-slate-900/5 backdrop-blur dark:bg-slate-800/90 dark:text-slate-200 dark:ring-white/10">
-												{navigations.map((navigation) => (
-													<li key={navigation.name}>
-														<Link
-															className="relative block px-3 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400"
-															href={navigation.href}
-														>
-															{navigation.name}
-														</Link>
-													</li>
-												))}
-											</ul>
-										</nav>
-									</div>
-									<div className="flex justify-end md:flex-1">
-										<ThemeSelector data-testid="theme-selector" />
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			</Container>
 		</header>
 	);
 }

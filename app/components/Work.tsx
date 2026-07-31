@@ -1,101 +1,111 @@
-"use client";
+import Monogram from "./Monogram";
 
-import { Button, Image } from "@nextui-org/react";
-import { useRouter } from "next/navigation";
-import WorkIcon from "./icons/WorkIcon";
-
-type Work = {
+type Role = {
 	company: string;
 	role: string;
+	location: string;
 	from: string;
 	to: string;
-	image: string;
 };
 
-const works: Work[] = [
+const months = [
+	"jan",
+	"feb",
+	"mar",
+	"apr",
+	"may",
+	"jun",
+	"jul",
+	"aug",
+	"sep",
+	"oct",
+	"nov",
+	"dec",
+];
+
+function parse(value: string): number {
+	if (value.trim().toLowerCase() === "present") {
+		const now = new Date();
+		return now.getFullYear() * 12 + now.getMonth();
+	}
+	const [month, year] = value.trim().toLowerCase().split(/\s+/);
+	return Number(year) * 12 + months.indexOf(month.slice(0, 3));
+}
+
+function formatDuration(from: string, to: string): string {
+	// Inclusive of both the start and end month, matching how tenure is
+	// conventionally counted (e.g. Aug 2017 – Jun 2019 = 1 yr 11 mos).
+	const total = parse(to) - parse(from) + 1;
+	const years = Math.floor(total / 12);
+	const rest = total % 12;
+	const parts: string[] = [];
+	if (years) parts.push(`${years} yr${years > 1 ? "s" : ""}`);
+	if (rest) parts.push(`${rest} mo${rest > 1 ? "s" : ""}`);
+	return parts.join(" ");
+}
+
+const works: Role[] = [
+	{
+		company: "Freelance",
+		role: "Senior Full Stack Web Developer",
+		location: "International · Remote",
+		from: "Jul 2019",
+		to: "Present",
+	},
 	{
 		company: "Peoplewave Pty. Ltd.",
 		role: "Lead Web Developer",
+		location: "Singapore · Remote",
 		from: "Aug 2017",
 		to: "Jun 2019",
-		image: "/peoplewave.jpeg",
 	},
 	{
 		company: "Bywave",
 		role: "Full Stack Web Developer",
+		location: "Philippines · On Site",
 		from: "Sep 2016",
 		to: "Dec 2017",
-		image: "/bywave.jpeg",
 	},
 	{
 		company: "Cloudology Codes",
 		role: "Web Developer",
+		location: "Philippines · Hybrid",
 		from: "Mar 2016",
 		to: "Aug 2016",
-		image: "/cloudology.jpeg",
 	},
 ];
 
 export default function Work() {
-	const router = useRouter();
-
 	return (
-		<div className="mx-auto w-full max-w-7xl lg:px-8">
-			<div className="relative px-4 sm:px-8 lg:px-12">
-				<div className="mx-auto max-w-2xl lg:max-w-5xl">
-					<div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-						<div className="flex flex-col gap-16" />
-						<div className="space-y-10 lg:pl-16 xl:pl-24">
-							<div className="rounded-2xl border border-slate-100 p-6 dark:border-slate-700/40">
-								<h2 className="flex items-center text-sm font-semibold text-slate-900 dark:text-slate-100">
-									<WorkIcon />
-									<span className="ml-3">Work</span>
-								</h2>
-								<ol className="mt-6 space-y-4">
-									{works.map((work) => (
-										<li key={work.company} className="flex gap-4">
-											<div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-slate-800/5 ring-1 ring-slate-900/5 dark:border dark:border-slate-700/50 dark:bg-slate-800 dark:ring-0">
-												<Image
-													alt={work.company}
-													width="32"
-													height="32"
-													className="h-7 w-7"
-													src={work.image}
-												/>
-											</div>
-											<dl className="flex flex-auto flex-wrap gap-x-2">
-												<dt className="sr-only">Company</dt>
-												<dd className="w-full flex-none text-sm font-medium text-slate-900 dark:text-slate-100">
-													{work.company}
-												</dd>
-												<dt className="sr-only">Role</dt>
-												<dd className="text-xs text-slate-500 dark:text-slate-400">
-													{work.role}
-												</dd>
-												<dt className="sr-only">Date</dt>
-												<dd className="ml-auto text-xs text-slate-400 dark:text-slate-500">
-													<time dateTime="2019">{work.from}</time>{" "}
-													<span aria-hidden="true">—</span>
-													<span className="sr-only">to</span>{" "}
-													<time dateTime="2024">{work.to}</time>
-												</dd>
-											</dl>
-										</li>
-									))}
-								</ol>
-								<Button
-									className="bg-slate-50 text-slate-900 hover:bg-slate-100 active:bg-slate-100 active:text-slate-900/60 dark:bg-slate-800/50 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-50 dark:active:bg-slate-800/50 dark:active:text-slate-50/70 mt-6 w-full"
-									// endContent={<DownloadIcon />}
-									onPress={() => router.push("/projects")}
-								>
-									{/* Download CV */}
-									View Projects
-								</Button>
-							</div>
+		<ul className="border-b border-line">
+			{works.map((work) => (
+				<li
+					key={work.company}
+					className="flex items-start gap-5 border-t border-line py-6 sm:items-center"
+				>
+					<Monogram name={work.company} />
+
+					<div className="grid flex-1 gap-x-10 gap-y-1 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-baseline">
+						<div>
+							<h3 className="font-display text-[clamp(1.05rem,1.5vw,1.25rem)] font-bold leading-tight tracking-[-0.015em] text-ink">
+								{work.role}
+							</h3>
+							<p className="mt-1 text-[15px] text-ink-soft">{work.company}</p>
+							<p className="mt-1 font-mono text-[11px] uppercase tracking-label text-muted">
+								{work.location}
+							</p>
 						</div>
+
+						<p className="font-mono text-[11px] uppercase tracking-label text-muted md:text-right">
+							{work.from} &rarr; {work.to}
+							<span className="text-muted/70">
+								{" "}
+								· {formatDuration(work.from, work.to)}
+							</span>
+						</p>
 					</div>
-				</div>
-			</div>
-		</div>
+				</li>
+			))}
+		</ul>
 	);
 }
