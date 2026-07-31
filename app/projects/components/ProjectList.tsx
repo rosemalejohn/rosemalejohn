@@ -2,6 +2,22 @@ import type { Project } from "@/app/types/Project";
 import ProjectItem from "./ProjectItem";
 
 const projects: Project[] = [
+  {
+		name: "RedThread",
+		description: "RedThread transforms music from a solo experience into a shared moment.",
+		link: "https://apps.apple.com/ph/app/redthread/id6762317751",
+		linkTitle: "RedThread iOS App",
+		image: "/redthread.png",
+		stack: ["laravel", "aws"],
+	},
+  {
+		name: "TieBreak",
+		description: "TieBreak is the easiest way to connect with local tennis players, find compatible hitting partners, and organize singles or doubles matches.",
+		link: "https://apps.apple.com/ph/app/tiebreak/id6763960355",
+		linkTitle: "TieBreak iOS App",
+		image: "/tiebreak.png",
+		stack: ["laravel", "aws"],
+	},
 	{
 		name: "Naughty Talk",
 		description: "Dating App",
@@ -31,7 +47,7 @@ const projects: Project[] = [
 		name: "Move With Us",
 		description:
 			"Move With Us provides women's health and fitness programs with science-based workout exercises and customised nutrition advice, all in one life-changing app.",
-		link: "https://movewithus.com",
+		link: "https://apps.apple.com/ph/app/move-with-us/id1523442465",
 		linkTitle: "movewithus.com",
 		image: "/movewithus.png",
 		stack: ["vue", "nuxt", "laravel", "aws"],
