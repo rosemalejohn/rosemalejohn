@@ -111,6 +111,25 @@ export default function Home() {
 							</span>
 						))}
 					</p>
+
+					<div
+						className="rise mt-8 flex gap-2"
+						style={{ animationDelay: "210ms" }}
+					>
+						{socials.map((social) => (
+							<Link
+								data-testid={social.name}
+								key={social.name}
+								href={social.href}
+								target="_blank"
+								rel="noreferrer"
+								aria-label={social.name}
+								className="flex h-11 w-11 items-center justify-center rounded-[3px] border border-line text-[17px] text-muted transition-colors hover:border-accent hover:text-accent"
+							>
+								{social.icon}
+							</Link>
+						))}
+					</div>
 				</Container>
 			</section>
 
@@ -165,41 +184,23 @@ export default function Home() {
 			{/* The page arrives at the ground, and stays there through the footer. */}
 			<section className="on-deep bg-deep pb-16 pt-20 text-on-deep sm:pb-20 sm:pt-24">
 				<Container>
-					<div className="grid gap-12 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
-						<div>
-							<p className="font-display font-condensed text-[13px] font-bold uppercase tracking-label text-on-deep-muted">
-								Contact
-							</p>
-							<h2 className="mt-6 max-w-[18ch] font-display text-[clamp(1.9rem,4vw,3rem)] font-extrabold leading-[1.02] tracking-[-0.03em]">
-								Open to new work.
-							</h2>
-							<p className="mt-5 max-w-[48ch] text-[17px] leading-[1.65] text-on-deep-muted">
-								Contract or full time, remote from Philippines. UTC+8, which is
-								a full working day of overlap with Australia and Singapore.
-							</p>
-							<a
-								href={`mailto:${email}`}
-								className="mt-8 inline-block font-mono text-[clamp(0.95rem,1.8vw,1.25rem)] tracking-[0.02em] text-on-deep-accent underline decoration-1 underline-offset-[7px] transition-opacity hover:no-underline"
-							>
-								{email}
-							</a>
-						</div>
-
-						<div className="flex gap-2">
-							{socials.map((social) => (
-								<Link
-									data-testid={social.name}
-									key={social.name}
-									href={social.href}
-									target="_blank"
-									rel="noreferrer"
-									aria-label={social.name}
-									className="flex h-11 w-11 items-center justify-center rounded-[3px] border border-on-deep-muted text-[17px] text-on-deep-muted transition-colors hover:border-on-deep-accent hover:text-on-deep-accent"
-								>
-									{social.icon}
-								</Link>
-							))}
-						</div>
+					<div>
+						<p className="font-display font-condensed text-[13px] font-bold uppercase tracking-label text-on-deep-muted">
+							Contact
+						</p>
+						<h2 className="mt-6 max-w-[18ch] font-display text-[clamp(1.9rem,4vw,3rem)] font-extrabold leading-[1.02] tracking-[-0.03em]">
+							Open to new work.
+						</h2>
+						<p className="mt-5 max-w-[48ch] text-[17px] leading-[1.65] text-on-deep-muted">
+							Contract or full time, remote from Philippines. UTC+8, which is a
+							full working day of overlap with Australia and Singapore.
+						</p>
+						<a
+							href={`mailto:${email}`}
+							className="mt-8 inline-block font-mono text-[clamp(0.95rem,1.8vw,1.25rem)] tracking-[0.02em] text-on-deep-accent underline decoration-1 underline-offset-[7px] transition-opacity hover:no-underline"
+						>
+							{email}
+						</a>
 					</div>
 				</Container>
 			</section>
