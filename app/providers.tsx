@@ -4,10 +4,14 @@ import { ThemeProvider } from "next-themes";
 
 export function Providers({ children }: { children: React.ReactNode }) {
 	return (
-		// Dark is the only theme. forcedTheme pins the `.dark` class on <html> and
-		// ignores system preference and any stored choice, so light mode can't be
-		// reached even through next-themes' persistence.
-		<ThemeProvider attribute="class" forcedTheme="dark">
+		// Light is the only theme now. `forcedTheme` pins the `class` on <html> so
+		// next-themes never reads storage or the OS preference — there is no toggle.
+		<ThemeProvider
+			attribute="class"
+			defaultTheme="light"
+			forcedTheme="light"
+			enableSystem={false}
+		>
 			{children}
 		</ThemeProvider>
 	);
