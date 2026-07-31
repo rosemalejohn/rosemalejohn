@@ -20,9 +20,9 @@ export default function Footer() {
 							<div className="mx-auto max-w-2xl lg:max-w-5xl">
 								<div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
 									<div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-slate-800 dark:text-slate-200">
-										{links.map((link, index) => (
+										{links.map((link) => (
 											<Link
-												key={index}
+												key={link.href}
 												className="transition hover:text-yellow-500 dark:hover:text-yellow-400"
 												href={link.href}
 											>

@@ -4,5 +4,5 @@ export type Project = {
 	link?: string;
 	linkTitle?: string;
 	image?: string;
-  stack?: string[];
+	stack?: string[];
 };

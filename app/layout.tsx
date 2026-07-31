@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 import "./globals.css";
-import { Providers } from "./providers";
-import Header from "./components/Header";
+import { Analytics } from "@vercel/analytics/react";
 import { twMerge } from "tailwind-merge";
 import Footer from "./components/Footer";
-import { Analytics } from "@vercel/analytics/react";
+import Header from "./components/Header";
+import { Providers } from "./providers";
 
 const urbanist = Urbanist({ subsets: ["latin"] });
 
@@ -28,7 +28,9 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		// next-themes sets `class` and `style` on <html> before hydration; React 19
+		// reports that as a mismatch without suppressHydrationWarning.
+		<html lang="en" suppressHydrationWarning>
 			<body className={twMerge(urbanist.className)}>
 				<Providers>
 					<div className="flex h-full min-h-screen bg-slate-50 dark:bg-slate-950">

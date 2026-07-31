@@ -1,11 +1,11 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import GithubIcon from "./components/icons/GithubIcon";
 import InstagramIcon from "./components/icons/InstagramIcon";
 import LinkedInIcon from "./components/icons/LinkedInIcon";
 import TwitterIcon from "./components/icons/TwitterIcon";
 // import Gallery from "./components/Gallery";
 import Work from "./components/Work";
-import type { ReactNode } from "react";
 
 type Social = {
 	name: string;

@@ -2,8 +2,8 @@
 
 import { Button } from "@nextui-org/react";
 import { useTheme } from "next-themes";
-import LightIcon from "./icons/LightIcon";
 import DarkIcon from "./icons/DarkIcon";
+import LightIcon from "./icons/LightIcon";
 
 export default function ThemeSelector() {
 	const { resolvedTheme, setTheme } = useTheme();

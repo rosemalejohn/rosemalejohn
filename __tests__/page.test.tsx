@@ -1,5 +1,5 @@
-import { expect, test, beforeAll, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { beforeAll, expect, test, vi } from "vitest";
 import Page from "./../app/page";
 
 vi.mock("./../app/components/Work", () => {
@@ -18,7 +18,7 @@ test("home page should have necessary text", () => {
 		"Hi, I'm Rosemale-John, a passionate and skilled full-stack web developer based in the Philippines. With a strong background in both front-end and back-end technologies",
 	];
 
-	texts.map((text: string) => {
+	texts.forEach((text: string) => {
 		expect(screen.getByText(text)).toBeDefined();
 	});
 });
@@ -26,7 +26,7 @@ test("home page should have necessary text", () => {
 test("home page should have social links", () => {
 	const links: string[] = ["Github", "Twitter", "Instagram", "LinkedIn"];
 
-	links.map((link: string) => {
+	links.forEach((link: string) => {
 		const github = screen.getByTestId(link);
 		expect(github).toHaveProperty("target", "_blank");
 		expect(github).toBeDefined();

@@ -1,8 +1,8 @@
 "use client";
 
 import { Button, Image } from "@nextui-org/react";
-import WorkIcon from "./icons/WorkIcon";
 import { useRouter } from "next/navigation";
+import WorkIcon from "./icons/WorkIcon";
 
 type Work = {
 	company: string;
@@ -52,8 +52,8 @@ export default function Work() {
 									<span className="ml-3">Work</span>
 								</h2>
 								<ol className="mt-6 space-y-4">
-									{works.map((work, index) => (
-										<li key={index} className="flex gap-4">
+									{works.map((work) => (
+										<li key={work.company} className="flex gap-4">
 											<div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-slate-800/5 ring-1 ring-slate-900/5 dark:border dark:border-slate-700/50 dark:bg-slate-800 dark:ring-0">
 												<Image
 													alt={work.company}
@@ -73,12 +73,10 @@ export default function Work() {
 													{work.role}
 												</dd>
 												<dt className="sr-only">Date</dt>
-												<dd
-													className="ml-auto text-xs text-slate-400 dark:text-slate-500"
-													aria-label={`${work.from} to ${work.to}`}
-												>
+												<dd className="ml-auto text-xs text-slate-400 dark:text-slate-500">
 													<time dateTime="2019">{work.from}</time>{" "}
-													<span aria-hidden="true">—</span>{" "}
+													<span aria-hidden="true">—</span>
+													<span className="sr-only">to</span>{" "}
 													<time dateTime="2024">{work.to}</time>
 												</dd>
 											</dl>

@@ -1,5 +1,6 @@
 "use client";
 
+import { Tooltip } from "@nextui-org/react";
 import { type ReactElement, useMemo } from "react";
 import AngularIcon from "./icons/AngularIcon";
 import AwsIcon from "./icons/AwsIcon";
@@ -10,12 +11,11 @@ import NextIcon from "./icons/NextIcon";
 import NodeIcon from "./icons/NodeIcon";
 import NuxtIcon from "./icons/NuxtIcon";
 import PhpIcon from "./icons/PhpIcon";
-import { Tooltip } from "@nextui-org/react";
-import WordpressIcon from "./icons/WordpressIcon";
-import VueIcon from "./icons/VueIcon";
-import TypescriptIcon from "./icons/TypescriptIcon";
-import TailwindIcon from "./icons/TailwindIcon";
 import ReactIcon from "./icons/ReactIcon";
+import TailwindIcon from "./icons/TailwindIcon";
+import TypescriptIcon from "./icons/TypescriptIcon";
+import VueIcon from "./icons/VueIcon";
+import WordpressIcon from "./icons/WordpressIcon";
 
 export default function TechStackIcon({ icon }: { icon: string }) {
 	const iconComponent = useMemo(() => {

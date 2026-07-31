@@ -1,5 +1,7 @@
-import { twMerge } from "tailwind-merge";
+"use client";
+
 import { Image } from "@nextui-org/image";
+import { twMerge } from "tailwind-merge";
 
 const images: { src: string; rotate: string }[] = [
 	{ src: "https://picsum.photos/seed/picsum/200/300", rotate: "rotate-2" },
@@ -15,9 +17,9 @@ const images: { src: string; rotate: string }[] = [
 export default function Gallery() {
 	return (
 		<div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-			{images.map((image, index) => (
+			{images.map((image) => (
 				<div
-					key={index}
+					key={image.src}
 					className={twMerge(
 						"relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-slate-100 sm:w-72 sm:rounded-2xl dark:bg-slate-800",
 						image.rotate,

@@ -1,8 +1,8 @@
-import { Avatar, Button } from "@nextui-org/react";
 import Link from "next/link";
-import ThemeSelector from "./ThemeSelector";
-import HeaderDropdownMenu from "./HeaderDropdownMenu";
 import type { NavigationItem } from "../types/NavigationItem";
+import HeaderAvatar from "./HeaderAvatar";
+import HeaderDropdownMenu from "./HeaderDropdownMenu";
+import ThemeSelector from "./ThemeSelector";
 
 const navigations: NavigationItem[] = [
 	{ name: "Home", href: "/" },
@@ -19,7 +19,7 @@ export default function Header() {
 						<div className="mx-auto max-w-2xl lg:max-w-5xl">
 							<div className="top-[var(--avatar-top,theme(spacing.3))] w-full">
 								<div className="relative">
-									<Avatar src="/me.png" size="lg" />
+									<HeaderAvatar />
 								</div>
 							</div>
 						</div>

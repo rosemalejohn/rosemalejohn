@@ -1,9 +1,9 @@
 "use client";
 
-import LinkIcon from "../../components/icons/LinkIcon";
 import { Image } from "@nextui-org/react";
-import type { Project } from "../../types/Project";
 import TechStackIcon from "@/app/components/TechStackIcon";
+import LinkIcon from "../../components/icons/LinkIcon";
+import type { Project } from "../../types/Project";
 
 type Props = {
 	project: Project;
@@ -16,6 +16,7 @@ export default function ProjectItem({ project }: Props) {
 	};
 
 	return (
+		// biome-ignore lint/a11y/noStaticElementInteractions lint/a11y/useKeyWithClickEvents: pre-existing — the whole card is click-to-open, so it is not keyboard reachable. Fixing it means restructuring the card around an overlay <a>; tracked separately.
 		<div
 			onClick={viewProject}
 			className="group relative flex flex-col items-start cursor-pointer"

@@ -1,5 +1,5 @@
-import { expect, test, beforeAll } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { beforeAll, expect, test } from "vitest";
 import Footer from "./../../app/components/Footer";
 
 beforeAll(() => {
@@ -9,7 +9,7 @@ beforeAll(() => {
 test("footer should have links", () => {
 	const links: string[] = ["Home", "Projects"];
 
-	links.map((link: string) => {
+	links.forEach((link: string) => {
 		expect(screen.getByText(link)).toBeDefined();
 	});
 });

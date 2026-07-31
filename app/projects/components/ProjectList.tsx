@@ -2,17 +2,19 @@ import type { Project } from "@/app/types/Project";
 import ProjectItem from "./ProjectItem";
 
 const projects: Project[] = [
-  {
+	{
 		name: "RedThread",
-		description: "RedThread transforms music from a solo experience into a shared moment.",
+		description:
+			"RedThread transforms music from a solo experience into a shared moment.",
 		link: "https://apps.apple.com/ph/app/redthread/id6762317751",
 		linkTitle: "RedThread iOS App",
 		image: "/redthread.png",
 		stack: ["laravel", "aws"],
 	},
-  {
+	{
 		name: "TieBreak",
-		description: "TieBreak is the easiest way to connect with local tennis players, find compatible hitting partners, and organize singles or doubles matches.",
+		description:
+			"TieBreak is the easiest way to connect with local tennis players, find compatible hitting partners, and organize singles or doubles matches.",
 		link: "https://apps.apple.com/ph/app/tiebreak/id6763960355",
 		linkTitle: "TieBreak iOS App",
 		image: "/tiebreak.png",
@@ -26,9 +28,10 @@ const projects: Project[] = [
 		image: "/naughtytalk.PNG",
 		stack: ["react", "next", "tailwind", "typescript", "laravel", "aws"],
 	},
-  {
+	{
 		name: "WeCollect",
-		description: "An e-commerce platform for trading cards with social features to connect collectors.",
+		description:
+			"An e-commerce platform for trading cards with social features to connect collectors.",
 		link: "https://wecollect.com.au/",
 		linkTitle: "wecollect.com.au",
 		image: "/wecollect.png",
@@ -111,8 +114,8 @@ const projects: Project[] = [
 export default function ProjectList() {
 	return (
 		<div className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
-			{projects.map((project, index) => (
-				<ProjectItem project={project} key={index} />
+			{projects.map((project) => (
+				<ProjectItem project={project} key={project.name} />
 			))}
 		</div>
 	);

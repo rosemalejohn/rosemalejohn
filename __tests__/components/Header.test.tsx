@@ -1,5 +1,5 @@
-import { expect, test, beforeAll, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { beforeAll, expect, test, vi } from "vitest";
 import Header from "./../../app/components/Header";
 
 vi.mock("./../../app/components/HeaderDropdownMenu");
@@ -17,7 +17,7 @@ beforeAll(() => {
 test("header should have navigation links", () => {
 	const links: string[] = ["Home", "Projects"];
 
-	links.map((link: string) => {
+	links.forEach((link: string) => {
 		expect(screen.getByText(link)).toBeDefined();
 	});
 });

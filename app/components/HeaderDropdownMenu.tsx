@@ -7,9 +7,9 @@ import {
 	DropdownMenu,
 	DropdownTrigger,
 } from "@nextui-org/react";
-import CaretDownIcon from "./icons/CaretDownIcon";
-import type { NavigationItem } from "../types/NavigationItem";
 import { useRouter } from "next/navigation";
+import type { NavigationItem } from "../types/NavigationItem";
+import CaretDownIcon from "./icons/CaretDownIcon";
 
 type Props = {
 	navigations?: NavigationItem[];
