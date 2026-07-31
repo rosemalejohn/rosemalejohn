@@ -17,6 +17,7 @@ const stackLabels: Record<string, string> = {
 	graphql: "GraphQL",
 	heroku: "Heroku",
 	iap: "Google & Apple IAP",
+	javascript: "JavaScript",
 	laravel: "Laravel",
 	livekit: "LiveKit",
 	mongodb: "MongoDB",
@@ -59,6 +60,7 @@ export const layerOrder: Layer[] = ["surface", "server", "services", "ground"];
 /** Which stratum each tool belongs to. A key missing here belongs to none. */
 const stackLayers: Record<string, Layer> = {
 	angular: "surface",
+	javascript: "surface",
 	next: "surface",
 	nuxt: "surface",
 	primevue: "surface",
