@@ -9,11 +9,14 @@ export default function Projects() {
 		<>
 			<section className="archive-hero">
 				<Container>
-					<h1>The work, so far.</h1>
-					<p>
-						Marketplaces, fitness platforms, social apps, and more. A collection
-						of products I’ve helped take from an empty repository to launch.
-					</p>
+					<div className="archive-hero-inner">
+						<h1>The work, so far.</h1>
+						<p>
+							Marketplaces, fitness platforms, social apps, and more. A
+							collection of products I’ve helped take from an empty repository
+							to launch.
+						</p>
+					</div>
 				</Container>
 			</section>
 			<section className="archive-work">

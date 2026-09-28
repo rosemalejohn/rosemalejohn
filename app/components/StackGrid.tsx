@@ -6,7 +6,10 @@ export default function StackGrid() {
 		<dl className="stack-grid">
 			{layerOrder.map((layer) => (
 				<div className="stack-group" key={layer}>
-					<dt>{layerMeta[layer].category}</dt>
+					<dt>
+						<span>{layerMeta[layer].category}</span>
+						<small>{layerMeta[layer].caption}</small>
+					</dt>
 					<dd>
 						{tools[layer].map((tool) => (
 							<span key={tool}>{tool}</span>

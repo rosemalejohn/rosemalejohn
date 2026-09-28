@@ -24,33 +24,33 @@ export default function ProjectRow({ project }: { project: Project }) {
 		: "Not public";
 	const inner = (
 		<>
-			{logos[project.name] ? (
-				<Image
-					className="project-row-logo"
-					src={logos[project.name]}
-					alt=""
-					width={48}
-					height={48}
-				/>
-			) : (
-				<span
-					className="project-row-logo project-row-monogram"
-					aria-hidden="true"
-				>
-					{project.name.slice(0, 1)}
-				</span>
-			)}
-			<div>
-				<div className="project-row-title">
-					<h3>{project.name}</h3>
-					<span className="project-destination">
-						{source === "apps.apple.com" ? "App Store" : source}
+			<div className="project-row-identity">
+				{logos[project.name] ? (
+					<Image
+						className="project-row-logo"
+						src={logos[project.name]}
+						alt=""
+						width={72}
+						height={72}
+					/>
+				) : (
+					<span
+						className="project-row-logo project-row-monogram"
+						aria-hidden="true"
+					>
+						{project.name.slice(0, 1)}
 					</span>
-				</div>
+				)}
+				<h3>{project.name}</h3>
+			</div>
+			<div className="project-row-detail">
 				<p>{project.description}</p>
 				<p className="project-tech">{stackNames(project.stack).join(" / ")}</p>
 			</div>
-			{project.link && <Arrow diagonal />}
+			<span className="project-destination">
+				{source === "apps.apple.com" ? "App Store" : source}
+				{project.link && <Arrow diagonal />}
+			</span>
 		</>
 	);
 	return (

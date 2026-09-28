@@ -78,16 +78,17 @@ export default function Work() {
 		<ul className="experience-list">
 			{works.map((work) => (
 				<li key={work.company} className="experience-row">
-					<div>
-						<h3>{work.company}</h3>
+					<div className="experience-period">
 						<p>
-							{work.from} — {work.to} · {formatDuration(work.from, work.to)}
+							{work.from} — {work.to}
 						</p>
+						<span>{formatDuration(work.from, work.to)}</span>
 					</div>
 					<div className="experience-position">
-						<p>{work.role}</p>
-						<p>{work.location}</p>
+						<h3>{work.role}</h3>
+						<p>{work.company}</p>
 					</div>
+					<p className="experience-location">{work.location}</p>
 				</li>
 			))}
 		</ul>
