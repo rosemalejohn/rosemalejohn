@@ -14,8 +14,8 @@ beforeAll(() => {
 
 test("home page should have necessary text", () => {
 	const texts: string[] = [
-		"Full-stack AI engineer · Philippines",
-		"I build down to bedrock.",
+		"Full-stack AI engineer.",
+		"Philippines",
 		"Open to work.",
 	];
 
@@ -24,20 +24,19 @@ test("home page should have necessary text", () => {
 	});
 });
 
-test("home page should link every product named in the hero", () => {
+test("home page should preserve links to shipped products", () => {
 	const shipped: string[] = [
 		"RedThread",
 		"TieBreak",
-		"Valued",
+		"Valued Business",
 		"Move With Us",
 		"F45 Training",
 	];
 
 	shipped.forEach((name: string) => {
-		// Product names repeat further down the page in the selected work list,
-		// so this asserts the first occurrence, which is the hero sentence.
-		const [heroMention] = screen.getAllByText(name);
-		expect(heroMention.closest("a")).not.toBeNull();
+		// Featured names appear in both the artwork and the linked heading.
+		const [projectMention] = screen.getAllByText(name);
+		expect(projectMention.closest("a")).not.toBeNull();
 	});
 });
 

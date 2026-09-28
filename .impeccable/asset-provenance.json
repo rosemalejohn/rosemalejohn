@@ -1,0 +1,64 @@
+{
+	"assets": [
+		{
+			"path": "public/me.png",
+			"origin": "Pre-existing project asset supplied in repository; reused unchanged for portfolio redesign.",
+			"sha256": "f854d770432dc5f39ee6cac9629fa8cbd7735f3b383b82efd5a1bed32ef93771"
+		},
+		{
+			"path": "public/redthread.png",
+			"origin": "Pre-existing project asset supplied in repository; reused unchanged for portfolio redesign.",
+			"sha256": "f9a3a0993b62204e37b0412ca753418b8d400b526102632e64a585368474c634"
+		},
+		{
+			"path": "public/tiebreak.png",
+			"origin": "Pre-existing project asset supplied in repository; reused unchanged for portfolio redesign.",
+			"sha256": "878a11be1382f4c145c5161726332757e10964ff70be71543c4f468c0b8ff602"
+		},
+		{
+			"path": "public/wecollect.png",
+			"origin": "Pre-existing project asset supplied in repository; reused unchanged for portfolio redesign.",
+			"sha256": "4dda4b047c723e90b7825fdce68f511e00f12022794883026b9b58bc6978013d"
+		},
+		{
+			"path": "public/valued.png",
+			"origin": "Pre-existing project asset supplied in repository; reused unchanged for portfolio redesign.",
+			"sha256": "a11fa7a5393d8a328daf9fd757747fe6587aaf9f188476b41112d85eca171ebd"
+		},
+		{
+			"path": "public/movewithus.png",
+			"origin": "Pre-existing project asset supplied in repository; reused unchanged for portfolio redesign.",
+			"sha256": "b833ae4b0fd2afab8125dd770080a80affa47d2734084d826f9953b16362e285"
+		},
+		{
+			"path": "public/f45.png",
+			"origin": "Pre-existing project asset supplied in repository; reused unchanged for portfolio redesign.",
+			"sha256": "ddddc84a29731cee34597c8aa150b90404b82af0db42a19880b3ed251b7820b6"
+		},
+		{
+			"path": "public/naughtytalk.PNG",
+			"origin": "Pre-existing project asset supplied in repository; reused unchanged for portfolio redesign.",
+			"sha256": "fc1d4c3244cccb25dea5fe9ca732281b6f67c4c76a82dffd861d06b33faf602b"
+		},
+		{
+			"path": "public/mustard.png",
+			"origin": "Pre-existing project asset supplied in repository; reused unchanged for portfolio redesign.",
+			"sha256": "6f7ff9f4809c2d8ac5ad12a1230b44ed62c2a89df5c2c5a2a48608cc6b3b80f5"
+		},
+		{
+			"path": "public/archipelago.png",
+			"origin": "Pre-existing project asset supplied in repository; reused unchanged for portfolio redesign.",
+			"sha256": "c9f34dbc1020ac96f97b0a8f2b2b611c077eb25456f17ccce628a4819c425f58"
+		},
+		{
+			"path": "public/peoplewave.jpeg",
+			"origin": "Pre-existing project asset supplied in repository; reused unchanged for portfolio redesign.",
+			"sha256": "4f302876de27be5c161d0251175acc5620f98a6cb15a1b80799213e82a5b780e"
+		},
+		{
+			"path": "public/concha.png",
+			"origin": "Pre-existing project asset supplied in repository; reused unchanged for portfolio redesign.",
+			"sha256": "f084b62f58b3aad12d643bc8c5c5be4bdce8a44895c453324d6f465efd639a17"
+		}
+	]
+}

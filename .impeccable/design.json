@@ -1,0 +1,91 @@
+{
+	"schemaVersion": 2,
+	"generatedAt": "2026-09-28T13:00:00Z",
+	"title": "Design System: Rosemale-John Portfolio",
+	"extensions": {
+		"motion": [
+			{
+				"name": "product-hover",
+				"value": "350ms cubic-bezier(0.16,1,0.3,1)",
+				"purpose": "Existing app icon lifts 6px and rotates -3 degrees on hover or focus; disabled for reduced motion."
+			}
+		],
+		"shadows": [],
+		"breakpoints": [
+			{
+				"name": "compact",
+				"value": "380px"
+			},
+			{
+				"name": "container-small",
+				"value": "640px"
+			},
+			{
+				"name": "stacked",
+				"value": "760px"
+			},
+			{
+				"name": "desktop",
+				"value": "1024px"
+			}
+		]
+	},
+	"components": [
+		{
+			"name": "Primary link",
+			"kind": "button",
+			"refersTo": "button-primary",
+			"description": "Primary work exploration action.",
+			"html": "<a class=\"ds-primary\" href=\"#work\">Explore my work</a>",
+			"css": ".ds-primary { display:inline-flex; background:var(--ink); color:var(--on-accent); padding:16px 21px; border-radius:4px; font:14px Geist,sans-serif; text-decoration:none; transition:background 180ms; } .ds-primary:hover { background:var(--accent); } .ds-primary:focus-visible { outline:2px solid var(--accent); outline-offset:5px; }"
+		},
+		{
+			"name": "Text link",
+			"kind": "button",
+			"description": "Quiet secondary navigation.",
+			"html": "<a class=\"ds-link\" href=\"#contact\">Get in touch</a>",
+			"css": ".ds-link { display:inline-flex; align-items:center; min-height:44px; font:500 14px Geist,sans-serif; color:var(--ink); text-decoration:none; } .ds-link:hover { text-decoration:underline; text-underline-offset:5px; } .ds-link:focus-visible { outline:2px solid var(--accent); outline-offset:5px; }"
+		},
+		{
+			"name": "Navigation",
+			"kind": "nav",
+			"description": "Direct work, About and contact navigation.",
+			"html": "<nav class=\"ds-nav\"><a href=\"/projects\">Work</a><a href=\"/#about\">About</a><a href=\"mailto:rosemalejohn@gmail.com\">Let\u2019s talk</a></nav>",
+			"css": ".ds-nav { display:flex; gap:36px; font:14px Geist,sans-serif; } .ds-nav a { display:inline-flex; align-items:center; min-height:44px; color:var(--ink); text-decoration:none; } .ds-nav a:hover { text-decoration:underline; } .ds-nav a:focus-visible { outline:2px solid var(--accent); outline-offset:5px; }"
+		},
+		{
+			"name": "Availability",
+			"kind": "custom",
+			"description": "Text-supported status indicator.",
+			"html": "<p class=\"ds-status\"><span></span>Open to contract &amp; full-time roles</p>",
+			"css": ".ds-status { display:flex; align-items:center; gap:9px; color:var(--muted); font:12px Geist,sans-serif; } .ds-status span { width:7px; height:7px; border-radius:50%; background:#4b7753; }"
+		},
+		{
+			"name": "Recommendation disclosure",
+			"kind": "custom",
+			"description": "Native disclosure for complete testimonial.",
+			"html": "<details class=\"ds-disclosure\"><summary>Read full recommendation</summary><p>Full recommendation appears here.</p></details>",
+			"css": ".ds-disclosure { color:var(--ink); font:15px/1.8 Geist,sans-serif; } .ds-disclosure summary { cursor:pointer; padding:8px 0; font-size:13px; } .ds-disclosure summary:hover { text-decoration:underline; } .ds-disclosure summary:focus-visible { outline:2px solid var(--accent); outline-offset:5px; }"
+		}
+	],
+	"narrative": {
+		"northStar": "The Personal Editorial Profile",
+		"overview": "A professional introduction supported by actual products and career history. Large serif headlines establish identity; quiet sans-serif text makes project details easy to scan. Existing photography brings the person into the portfolio.",
+		"keyCharacteristics": [
+			"Forest text and pale ivory surfaces.",
+			"Real portrait and product marks.",
+			"Open layouts with restrained rules.",
+			"Direct work and contact links."
+		],
+		"rules": [],
+		"dos": [
+			"Do preserve authentic project descriptions, URLs, and recommendation wording.",
+			"Do use existing images at appropriate sizes.",
+			"Do keep body text and action links legible across breakpoints."
+		],
+		"donts": [
+			"Don't invent impact metrics or case-study claims.",
+			"Don't add ornamental technology diagrams or competing card systems."
+		]
+	}
+}

@@ -7,9 +7,14 @@ beforeAll(() => {
 });
 
 test("header should have navigation links", () => {
-	const links: string[] = ["Home", "Projects"];
+	const links = {
+		"Rosemale-John home": "/",
+		Work: "/projects",
+		About: "/#about",
+		"Let’s talk": "mailto:rosemalejohn@gmail.com",
+	};
 
-	links.forEach((link: string) => {
-		expect(screen.getByText(link)).toBeDefined();
+	Object.entries(links).forEach(([name, href]) => {
+		expect(screen.getByRole("link", { name }).getAttribute("href")).toBe(href);
 	});
 });

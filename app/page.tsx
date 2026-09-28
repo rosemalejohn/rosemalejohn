@@ -1,189 +1,216 @@
+import Image from "next/image";
 import Link from "next/link";
+import { Arrow } from "./components/Arrow";
 import Container from "./components/Container";
+import { FeaturedProject } from "./components/FeaturedProject";
 import ProjectRow from "./components/ProjectRow";
 import Recommendations from "./components/Recommendations";
-import SectionHeading from "./components/SectionHeading";
 import StackGrid from "./components/StackGrid";
 import Work from "./components/Work";
 import { featuredProjects, projects } from "./data/projects";
-import { toolsByLayer } from "./data/stack";
 
-type Social = {
-	name: string;
-	href: string;
-};
-
-const socials: Social[] = [
-	{ name: "Github", href: "https://github.com/rosemalejohn" },
-	{ name: "LinkedIn", href: "https://linkedin.com/in/rosemalejohn" },
-	{ name: "Twitter", href: "https://twitter.com/rosemalejohn" },
-	{ name: "Instagram", href: "https://instagram.com/rosemalejohn" },
+const socials = [
+	{ name: "Github", label: "GitHub", href: "https://github.com/rosemalejohn" },
+	{
+		name: "LinkedIn",
+		label: "LinkedIn",
+		href: "https://linkedin.com/in/rosemalejohn",
+	},
+	{
+		name: "Twitter",
+		label: "Twitter",
+		href: "https://twitter.com/rosemalejohn",
+	},
+	{
+		name: "Instagram",
+		label: "Instagram",
+		href: "https://instagram.com/rosemalejohn",
+	},
 ];
-
-const email = "rosemalejohn@gmail.com";
-
-/**
- * The evidence behind the headline: each shipped product is a live link, so
- * the claim can be checked in one click.
- */
-const shipped: { name: string; href: string }[] = [
-	{
-		name: "RedThread",
-		href: "https://apps.apple.com/ph/app/redthread/id6762317751",
-	},
-	{
-		name: "TieBreak",
-		href: "https://apps.apple.com/ph/app/tiebreak/id6763960355",
-	},
-	{ name: "Valued", href: "https://valued.biz/" },
-	{
-		name: "Move With Us",
-		href: "https://apps.apple.com/ph/app/move-with-us/id1523442465",
-	},
-	{ name: "F45 Training", href: "https://f45training.com/" },
-];
-
-function ShipLink({ name, href }: { name: string; href: string }) {
-	return (
-		<a
-			href={href}
-			target="_blank"
-			rel="noreferrer"
-			className="font-medium text-ink underline decoration-line-strong decoration-1 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
-		>
-			{name}
-		</a>
-	);
-}
 
 export default function Home() {
-	const stackCount = Object.values(toolsByLayer()).flat().length;
-
 	return (
 		<>
-			<section className="pb-16 pt-14 sm:pb-20 sm:pt-20">
+			<section className="hero">
 				<Container>
-					<div className="rise flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-label">
-						<p className="text-muted">Full-stack AI engineer · Philippines</p>
+					<div className="hero-grid">
+						<div className="hero-copy">
+							<h1>
+								Rosemale-John
+								<span className="hero-role">Full-stack AI engineer.</span>
+							</h1>
+							<p className="hero-description">
+								I turn ambitious ideas into products people use every day. From
+								the first line of code to the systems behind it all.
+							</p>
+							<div className="hero-actions">
+								<a href="#work" className="button-primary">
+									Explore my work <Arrow />
+								</a>
+								<a href="mailto:rosemalejohn@gmail.com" className="text-link">
+									Get in touch <Arrow diagonal />
+								</a>
+							</div>
+							<p className="availability">
+								<span />
+								Open to contract &amp; full-time roles
+							</p>
+						</div>
+						<figure className="hero-portrait">
+							<Image
+								src="/me.png"
+								alt="Rosemale-John at a café with his laptop"
+								width={512}
+								height={512}
+								priority
+								sizes="(max-width: 760px) 90vw, 360px"
+							/>
+							<figcaption>
+								<span>Philippines</span>
+								<span>UTC+8</span>
+							</figcaption>
+						</figure>
 					</div>
-
-					<h1
-						className="rise mt-8 max-w-[14ch] font-display text-[clamp(2.6rem,7vw,5rem)] font-extrabold leading-[0.94] tracking-[-0.035em] text-ink"
-						style={{ animationDelay: "70ms" }}
-					>
-						I build down to bedrock.
-					</h1>
-
-					<p
-						className="rise mt-8 max-w-[58ch] text-[17px] leading-[1.65] text-ink-soft"
-						style={{ animationDelay: "140ms" }}
-					>
-						Ten years of taking products from an empty repository to something
-						people open every day:{" "}
-						{shipped.map((item, index) => (
-							<span key={item.name}>
-								<ShipLink name={item.name} href={item.href} />
-								{index < shipped.length - 2 && ", "}
-								{index === shipped.length - 2 && " and "}
-								{index === shipped.length - 1 && "."}
-							</span>
-						))}
-					</p>
-
-					<div
-						className="rise mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-label"
-						style={{ animationDelay: "210ms" }}
-					>
-						{socials.map((social) => (
-							<Link
-								data-testid={social.name}
-								key={social.name}
-								href={social.href}
-								target="_blank"
-								rel="noreferrer"
-								className="group inline-flex items-center gap-1 text-muted transition-colors hover:text-accent"
-							>
-								{social.name}
-								<span
-									aria-hidden="true"
-									className="text-line-strong transition-colors group-hover:text-accent"
-								>
-									↗
-								</span>
-							</Link>
-						))}
+					<div className="hero-footnote">
+						<p>Building for the web since 2016.</p>
+						<p>Laravel &amp; AWS at the core. Thoughtful interfaces on top.</p>
 					</div>
 				</Container>
 			</section>
 
-			<section className="py-16 sm:py-20">
+			<section id="work" className="work-section section-space">
 				<Container>
-					<SectionHeading label="Stack" meta={`${stackCount} tools`} />
-					<div className="mt-8">
-						<StackGrid />
+					<div className="section-intro">
+						<div>
+							<h2>
+								Selected work<span className="heading-dot">.</span>
+							</h2>
+							<p>Real products. From first commit to everyday use.</p>
+						</div>
+						<Link href="/projects" className="text-link">
+							All {projects.length} projects <Arrow />
+						</Link>
 					</div>
-				</Container>
-			</section>
-
-			<section className="py-16 sm:py-20">
-				<Container>
-					<SectionHeading
-						label="Projects"
-						meta={`${featuredProjects.length} of ${projects.length}`}
-					/>
-					<ul className="mt-2 border-b border-line">
-						{featuredProjects.map((project) => (
+					<div className="featured-grid">
+						{featuredProjects.slice(0, 2).map((project, index) => (
+							<FeaturedProject
+								key={project.name}
+								project={project}
+								kind={index === 0 ? "music" : "tennis"}
+							/>
+						))}
+					</div>
+					<ul className="project-list">
+						{featuredProjects.slice(2).map((project) => (
 							<ProjectRow key={project.name} project={project} />
 						))}
 					</ul>
-					<Link
-						href="/projects"
-						className="mt-8 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-label text-ink transition-colors hover:text-accent"
-					>
-						Everything else
-						<span aria-hidden="true">→</span>
-					</Link>
+					<p className="additional-work">
+						Also built for{" "}
+						<a href="https://f45training.com/" target="_blank" rel="noreferrer">
+							F45 Training <Arrow diagonal />
+						</a>
+					</p>
 				</Container>
 			</section>
 
-			<section className="py-16 sm:py-20">
+			<section id="about" className="about-section section-space">
 				<Container>
-					<SectionHeading label="Where I've Worked" meta="4 roles" />
-					<div className="mt-2">
+					<div className="about-intro">
+						<h2>
+							A little about <br />
+							the person behind <br />
+							<em>the products.</em>
+						</h2>
+						<div>
+							<p className="about-lead">
+								Ten years of taking products from an empty repository to
+								something people open every day.
+							</p>
+							<p>
+								I’m a full-stack engineer based in the Philippines. My work
+								spans marketplaces, fitness platforms, social apps, and the
+								infrastructure that keeps them running.
+							</p>
+							<p>
+								Laravel and AWS underneath. Vue, Nuxt, React, and Next.js on
+								top. Comfortable across the stack, from the interface to
+								deployment.
+							</p>
+							<div className="social-links">
+								{socials.map((social) => (
+									<a
+										data-testid={social.name}
+										key={social.name}
+										href={social.href}
+										target="_blank"
+										rel="noreferrer"
+									>
+										{social.label}
+										<Arrow diagonal />
+									</a>
+								))}
+							</div>
+						</div>
+					</div>
+					<div className="experience-block">
+						<div className="section-intro">
+							<h2>Experience</h2>
+							<span className="section-note">2016 — present</span>
+						</div>
 						<Work />
 					</div>
 				</Container>
 			</section>
 
-			<section className="pb-20 sm:pb-24">
+			<section className="section-space toolkit-section">
 				<Container>
-					<SectionHeading label="Recommendations" meta="1 received" />
-					<div className="mt-2">
-						<Recommendations />
+					<div className="section-intro">
+						<div>
+							<h2>The tools behind the work.</h2>
+							<p>A full stack, chosen to fit the product.</p>
+						</div>
 					</div>
+					<StackGrid />
 				</Container>
 			</section>
-
-			{/* The page arrives at the ground, and stays there through the footer. */}
-			<section className="on-deep bg-deep pb-16 pt-20 text-on-deep sm:pb-20 sm:pt-24">
+			<section className="recommendation-section">
 				<Container>
-					<div>
-						<p className="font-display font-condensed text-[13px] font-bold uppercase tracking-label text-on-deep-muted">
-							Contact
-						</p>
-						<h2 className="mt-6 max-w-[18ch] font-display text-[clamp(1.9rem,4vw,3rem)] font-extrabold leading-[1.02] tracking-[-0.03em]">
-							Open to work.
-						</h2>
-						<p className="mt-5 max-w-[48ch] text-[17px] leading-[1.65] text-on-deep-muted">
-							Contract or full time, remote from Philippines. UTC+8, which is a
-							full working day of overlap with Australia and Singapore.
-						</p>
-						<a
-							href={`mailto:${email}`}
-							className="mt-8 inline-block font-mono text-[clamp(0.95rem,1.8vw,1.25rem)] tracking-[0.02em] text-on-deep-accent underline decoration-1 underline-offset-[7px] transition-opacity hover:no-underline"
-						>
-							{email}
-						</a>
+					<h2>From the people I’ve worked with.</h2>
+					<Recommendations />
+				</Container>
+			</section>
+			<section id="contact" className="contact-section">
+				<Container>
+					<div className="contact-grid">
+						<div>
+							<h2>
+								Have something
+								<br />
+								in mind? <em>Let’s talk.</em>
+							</h2>
+							<a href="mailto:rosemalejohn@gmail.com" className="contact-email">
+								rosemalejohn@gmail.com <Arrow diagonal />
+							</a>
+						</div>
+						<div className="contact-details">
+							<p className="availability">
+								<span />
+								Open to work.
+							</p>
+							<p>
+								Contract or full time, remote from the Philippines. UTC+8, with
+								a full working day of overlap with Australia and Singapore.
+							</p>
+							<a
+								href="https://linkedin.com/in/rosemalejohn"
+								target="_blank"
+								rel="noreferrer"
+								className="text-link"
+							>
+								Connect on LinkedIn <Arrow diagonal />
+							</a>
+						</div>
 					</div>
 				</Container>
 			</section>

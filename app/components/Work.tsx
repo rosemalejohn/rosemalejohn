@@ -1,5 +1,3 @@
-import Monogram from "./Monogram";
-
 type Role = {
 	company: string;
 	role: string;
@@ -77,32 +75,18 @@ const works: Role[] = [
 
 export default function Work() {
 	return (
-		<ul className="border-b border-line">
+		<ul className="experience-list">
 			{works.map((work) => (
-				<li
-					key={work.company}
-					className="flex items-start gap-5 border-t border-line py-6 sm:items-center"
-				>
-					<Monogram name={work.company} />
-
-					<div className="grid flex-1 gap-x-10 gap-y-1 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-baseline">
-						<div>
-							<h3 className="font-display text-[clamp(1.05rem,1.5vw,1.25rem)] font-bold leading-tight tracking-[-0.015em] text-ink">
-								{work.role}
-							</h3>
-							<p className="mt-1 text-[15px] text-ink-soft">{work.company}</p>
-							<p className="mt-1 font-mono text-[11px] uppercase tracking-label text-muted">
-								{work.location}
-							</p>
-						</div>
-
-						<p className="font-mono text-[11px] uppercase tracking-label text-muted md:text-right">
-							{work.from} &rarr; {work.to}
-							<span className="text-muted/70">
-								{" "}
-								· {formatDuration(work.from, work.to)}
-							</span>
+				<li key={work.company} className="experience-row">
+					<div>
+						<h3>{work.company}</h3>
+						<p>
+							{work.from} — {work.to} · {formatDuration(work.from, work.to)}
 						</p>
+					</div>
+					<div className="experience-position">
+						<p>{work.role}</p>
+						<p>{work.location}</p>
 					</div>
 				</li>
 			))}

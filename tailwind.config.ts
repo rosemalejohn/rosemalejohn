@@ -37,7 +37,7 @@ const config: Config = {
 				// Body/UI — the base voice.
 				sans: ["var(--font-sans)", "system-ui", "sans-serif"],
 				// Display — page titles, section number labels, big stat values.
-				display: ["var(--font-display)", "var(--font-mono)", "monospace"],
+				display: ["var(--font-display)", "Georgia", "serif"],
 				// Technical — labels, timestamps, tags, footer links, nav items.
 				mono: ["var(--font-mono)", "ui-monospace", "monospace"],
 				// Long-form — article/blog body text only.
@@ -47,7 +47,7 @@ const config: Config = {
 				label: "0.16em",
 			},
 			maxWidth: {
-				shell: "1140px",
+				shell: "1280px",
 			},
 		},
 	},

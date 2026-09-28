@@ -7,10 +7,10 @@ beforeAll(() => {
 });
 
 test("footer should have links", () => {
-	const links: string[] = ["Home", "Projects"];
+	const links: string[] = ["Rosemale-John", "GitHub"];
 
 	links.forEach((link: string) => {
-		expect(screen.getByText(link)).toBeDefined();
+		expect(screen.getByRole("link", { name: link })).toBeDefined();
 	});
 });
 
