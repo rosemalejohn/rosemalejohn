@@ -41,13 +41,15 @@ test("home page should preserve links to shipped products", () => {
 });
 
 test("home page should have social links", () => {
-	const links: string[] = ["Github", "Twitter", "Instagram", "LinkedIn"];
+	const links: string[] = ["Github", "LinkedIn"];
 
 	links.forEach((link: string) => {
-		const github = screen.getByTestId(link);
-		expect(github).toHaveProperty("target", "_blank");
-		expect(github).toBeDefined();
+		const social = screen.getByTestId(link);
+		expect(social).toHaveProperty("target", "_blank");
+		expect(social).toBeDefined();
 	});
+	expect(screen.queryByRole("link", { name: "Twitter" })).toBeNull();
+	expect(screen.queryByRole("link", { name: "Instagram" })).toBeNull();
 });
 
 test("home page should have a contact address", () => {

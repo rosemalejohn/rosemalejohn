@@ -16,16 +16,6 @@ const socials = [
 		label: "LinkedIn",
 		href: "https://linkedin.com/in/rosemalejohn",
 	},
-	{
-		name: "Twitter",
-		label: "Twitter",
-		href: "https://twitter.com/rosemalejohn",
-	},
-	{
-		name: "Instagram",
-		label: "Instagram",
-		href: "https://instagram.com/rosemalejohn",
-	},
 ];
 
 export default function Home() {
