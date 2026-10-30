@@ -1,98 +1,60 @@
 ---
-name: Rosemale-John Portfolio
-description: Personal engineering portfolio with an editorial voice and direct product evidence.
+name: Rosemale-John — Personal Engineering Portfolio
+description: A restrained personal workboard with a photo-led profile, clear project cards, and readable career history.
 colors:
-  paper: "#f7f8f2"
-  surface: "#edf0e7"
-  ink: "#21392e"
-  ink-soft: "#45574b"
-  muted: "#657064"
-  line: "#d9dfd3"
-  line-strong: "#aab7a6"
-  accent: "#2b5940"
+  paper: "#f5f5f3"
+  surface: "#eeeff1"
+  card: "#ffffff"
+  ink: "#272a30"
+  ink-soft: "#50565f"
+  muted: "#626871"
+  line: "#dfe1e2"
+  line-strong: "#bcc1c7"
+  accent: "#405677"
+  accent-hover: "#30435f"
   on-accent: "#ffffff"
-  deep: "#203b2e"
-  on-deep: "#f7f8f2"
-  on-deep-muted: "#c1cec1"
+  contact: "#272a30"
+  on-contact: "#ffffff"
+  on-contact-soft: "#d9dce0"
 typography:
-  display:
-    fontFamily: "Source Serif 4, Georgia, serif"
-    fontSize: "clamp(3rem, 5.6vw, 4.8rem)"
-    fontWeight: 400
-    lineHeight: 1.08
-    letterSpacing: "-0.035em"
-  headline:
-    fontFamily: "Source Serif 4, Georgia, serif"
-    fontSize: "clamp(2rem, 3.3vw, 2.9rem)"
-    fontWeight: 400
-    lineHeight: 1.18
-    letterSpacing: "-0.035em"
-  body:
-    fontFamily: "Geist, sans-serif"
-    fontSize: "17px"
-    lineHeight: 1.8
-  label:
-    fontFamily: "Geist, sans-serif"
-    fontSize: "12px"
-rounded:
-  portrait: "3px"
-  control: "4px"
-  logo: "8px"
-spacing:
-  small: "12px"
-  medium: "24px"
-  section: "86px"
-  section-mobile: "56px"
-components:
-  button-primary:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.on-accent}"
-    rounded: "{rounded.control}"
-    padding: "16px 21px"
-  button-primary-hover:
-    backgroundColor: "{colors.accent}"
+  body: "Geist, sans-serif"
+  quote: "Source Serif 4, Georgia, serif"
+  utility: "ui-monospace, SFMono-Regular, Consolas, monospace"
+  body-size: "16px"
+  intro-size: "18px desktop; 16px mobile"
+  supporting-size: "13–14px"
+  headline-size: "clamp(1.75rem, 2.8vw, 2.25rem)"
+  section-heading-size: "clamp(1.75rem, 2.5vw, 2.125rem)"
 ---
 
-## Overview
+## Direction
 
-**Creative North Star: "The Personal Editorial Profile"**
-
-A professional introduction supported by actual products and career history. Large serif headlines establish identity; quiet sans-serif text makes project details easy to scan. Existing photography brings the person into the portfolio.
-
-**Key Characteristics:**
-- Forest text and pale ivory surfaces.
-- Real portrait and product marks.
-- Open layouts with restrained rules.
-- Direct work and contact links.
-
-## Colors
-
-CSS custom properties in `app/globals.css` own the palette. Paper is the default background; surface distinguishes the About section. Deep owns the contact region with on-deep foregrounds. Project artwork uses product-specific muted backgrounds: music `#e9d8cf`, tennis `#e0e7d4`.
-
-## Typography
-
-Source Serif 4 supplies display headings and the recommendation. Geist supplies body, navigation, project titles, dates, and technology lists. Fonts load through next/font. Italics emphasize selected heading phrases. Body text ranges from 14–17px; supporting labels are 11–13px. Headlines use balanced wrapping. Mobile hero lettering adjusts to available width.
+A personal workboard for clients and hiring teams. Character comes from real photography, product marks, varied composition, and restrained interactions. Surfaces are neutral white and gray, with charcoal text and one muted blue accent for actions. Product cards all use the same surface. Colors within authentic logos and photography retain their original meaning.
 
 ## Layout
 
-The shared container caps at 1280px, including horizontal padding of 24px, 40px at 640px, and 64px at 1024px. Desktop hero uses a flexible text column and a 340px portrait column; the portrait becomes 280px below 1024px. At 760px, hero, featured work, About, experience rows, and contact stack. Tool groups remain two columns until 380px. Sections use 86px vertical padding, reducing to 56px on mobile.
+The shared shell caps at 1440px. A 280px profile rail sits beside the content, reducing to 240px below 1200px. A straight, framed 176px portrait anchors the desktop profile. Navigation, location, contact, and social links stay reachable. Below 900px, the rail becomes a compact masthead with a 56px portrait, reducing to 44px below 541px. On desktop heights below 701px, the profile stops sticking so all content remains reachable.
 
-## Elevation & Depth
+The reading column caps at 1080px including padding. Desktop inset is 40px; tablet 32px; phone 24px. Main content uses an open introduction, compact section anchors, and varied reading layouts rather than a repeated card grid. The introduction states the engineering role, current employer, and experience. Page headings remain plain and modest. No abbreviated tools strip appears in the introduction.
 
-Flat surfaces and tonal sections establish hierarchy. No component shadows. Thin separators organize project and experience lists.
+## Main content: inside the work
 
-## Shapes
+Selected products are explored through `ProjectExplorer`. Desktop uses a product list beside one contextual detail panel; phones below 701px use a labelled native select. Selection changes purpose, actual contribution, engineering focus, technologies, and public destination together. Buttons expose pressed state and remain keyboard-operable; a polite status region announces the selected project without moving focus. The direct external links remain in the desktop product list, and the active project always has an explicit Open project link. The full server-rendered archive remains reachable for all 13 projects. Archive entries also render category, role, contribution, focus, and platform context from the same projectStories source wherever notes are available, so featured products carry the same detail on both pages. Keep unsourced projects limited to their verified summaries and technologies.
 
-Portrait corners are 3px; primary controls and artwork panels 4px; small product logos 8px. Small availability dots use circles. Portrait retains its photographic setting.
+Stories in `app/data/project-stories.ts` use the supplied resume and existing project data. Keep product purpose distinct from individual contribution. The Move With Us 300K+ monthly active user figure describes platform scale. No screenshots, ownership claims, or outcomes are invented.
 
-## Components
+A short two-column background section leads into native career disclosures. Appetiser starts expanded; older roles can be opened independently. Preserve all resume-based highlights, initiatives, dates, locations, and the prior Cloudology entry. The full toolkit uses horizontal category rows on desktop and stacks on phones. Recommendation wording stays verbatim. A compact charcoal contact section closes the page.
 
-Primary links are forest-filled rectangles with a 20px authored SVG arrow. Hover changes background to accent. Secondary links pair text and the same SVG arrow. Navigation uses direct links with at least 44px height. Project artwork lifts and rotates its existing icon on hover or keyboard focus; reduced motion removes transitions. Project lists use real logos, descriptive text, technology names, and explicit destinations. Native details/summary reveals the full unchanged recommendation. Focus rings are 2px with a 5px offset, white inside contact. Selection and scrollbar colors follow the palette.
+New main-specific styling lives in `app/overview.css`. The approved sidebar components, shared shell dimensions, and sidebar CSS remain unchanged.
 
-## Do's and Don'ts
+## Type and accessibility
 
-- Do preserve authentic project descriptions, URLs, and recommendation wording.
-- Do use existing images at appropriate sizes.
-- Do keep body text and action links legible across breakpoints.
-- Don't invent impact metrics or case-study claims.
-- Don't add ornamental technology diagrams or competing card systems.
+Plain sans-serif page titles stay at 28–36px with natural wrapping. Serif type is reserved for the recommendation. Body copy is at least 16px with comfortable 1.7–1.85 line height. Supporting labels are 13–14px; technology lists are 14px. Long content wraps. Focus rings are visible, including a white ring inside contact. The skip link focuses main. Decorative icons and product logos are hidden from assistive technology. Contact remains available through the shared header.
+
+## Motion
+
+The open introduction and changed project panel have short 3px entrance transitions. Selection state updates immediately and does not depend on animation completion. Native career controls rotate a decorative plus into a close mark. Career entries, nested engineering initiatives, and full recommendations smoothly expand over 260ms and collapse over 200ms using native details-content transitions. Browsers without intrinsic-size interpolation retain a short opening fade. Native details state and keyboard behavior stay in charge; no timers or animation-completion callbacks govern correctness. Shared action arrows and button press feedback retain the established subtle motion. All movement is opt-in through the no-preference media query and disabled for reduced motion. No continuous animation or content hidden awaiting scroll.
+
+## Content rules
+
+Preserve real career facts, project descriptions, destinations, technology names, and recommendations. Keep current employer aligned with the supplied resume. Avoid invented metrics, product screenshots, or credentials. Reuse the existing framework, fonts, and assets; no extra dependencies are needed.

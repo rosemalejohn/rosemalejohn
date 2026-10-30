@@ -47,7 +47,7 @@ const config: Config = {
 				label: "0.16em",
 			},
 			maxWidth: {
-				shell: "1280px",
+				shell: "1152px",
 			},
 		},
 	},

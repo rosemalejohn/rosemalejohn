@@ -1,24 +1,20 @@
 import Link from "next/link";
-import Container from "./Container";
+import { Arrow } from "./Arrow";
 
 export default function Footer() {
 	return (
 		<footer className="site-footer">
-			<Container>
-				<div className="footer-inner">
-					<Link href="/" className="footer-name">
-						Rosemale-John
-					</Link>
-					<p>Based in the Philippines. Building everywhere.</p>
-					<a
-						href="https://github.com/rosemalejohn"
-						target="_blank"
-						rel="noreferrer"
-					>
-						GitHub
-					</a>
-				</div>
-			</Container>
+			<Link href="/" className="footer-name">
+				Rosemale-John
+			</Link>
+			<p>Thoughtfully built. Always improving.</p>
+			<a
+				href="https://github.com/rosemalejohn"
+				target="_blank"
+				rel="noreferrer"
+			>
+				GitHub <Arrow diagonal />
+			</a>
 		</footer>
 	);
 }

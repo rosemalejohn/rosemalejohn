@@ -44,14 +44,15 @@ export default function RootLayout({
 		<html lang="en" suppressHydrationWarning>
 			<body className={`${sans.variable} ${display.variable} font-sans`}>
 				<Providers>
-					<div className="flex min-h-screen flex-col">
+					<div className="site-shell">
 						<Header />
 
-						<main id="main" className="flex-auto">
-							{children}
-						</main>
-
-						<Footer />
+						<div className="page-column">
+							<main id="main" tabIndex={-1}>
+								{children}
+							</main>
+							<Footer />
+						</div>
 					</div>
 				</Providers>
 

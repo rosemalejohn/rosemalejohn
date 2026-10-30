@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { projectStories } from "../data/project-stories";
 import { stackNames } from "../data/stack";
 import type { Project } from "../types/Project";
 import { Arrow } from "./Arrow";
@@ -19,53 +20,70 @@ const logos: Record<string, string> = {
 };
 
 export default function ProjectRow({ project }: { project: Project }) {
-	const source = project.link
+	const story = projectStories[project.name];
+	const destination = project.link
 		? new URL(project.link).hostname.replace(/^www\./, "")
 		: "Not public";
-	const inner = (
+	const content = (
 		<>
-			<div className="project-row-identity">
+			<div className="project-mark">
 				{logos[project.name] ? (
-					<Image
-						className="project-row-logo"
-						src={logos[project.name]}
-						alt=""
-						width={72}
-						height={72}
-					/>
+					<Image src={logos[project.name]} alt="" width={56} height={56} />
 				) : (
-					<span
-						className="project-row-logo project-row-monogram"
-						aria-hidden="true"
-					>
-						{project.name.slice(0, 1)}
-					</span>
+					<span aria-hidden="true">{project.name.slice(0, 1)}</span>
 				)}
-				<h3>{project.name}</h3>
 			</div>
-			<div className="project-row-detail">
-				<p>{project.description}</p>
-				<p className="project-tech">{stackNames(project.stack).join(" / ")}</p>
+			<div className="project-body">
+				<div className="project-title-line">
+					<h3>{project.name}</h3>
+					<span className="project-destination">
+						{destination === "apps.apple.com" ? "iOS app" : destination}
+					</span>
+				</div>
+				{story && <p className="archive-project-category">{story.category}</p>}
+				<p className="project-description">{project.description}</p>
+				<ul className="project-technologies" aria-label="Technologies">
+					{stackNames(project.stack).map((tool) => (
+						<li key={tool}>{tool}</li>
+					))}
+				</ul>
 			</div>
-			<span className="project-destination">
-				{source === "apps.apple.com" ? "App Store" : source}
-				{project.link && <Arrow diagonal />}
-			</span>
+			{project.link && <Arrow diagonal className="project-arrow" />}
 		</>
 	);
 	return (
-		<li className="project-row">
+		<li className={story ? "project-row has-story" : "project-row"}>
 			{project.link ? (
 				<a
-					className="project-row-inner"
+					className="project-entry"
 					href={project.link}
 					target="_blank"
 					rel="noreferrer"
 				>
-					{inner}
+					{content}
 				</a>
 			) : (
-				<div className="project-row-inner">{inner}</div>
+				<div className="project-entry">{content}</div>
+			)}
+			{story && (
+				<div className="archive-project-story">
+					<div className="archive-contribution-heading">
+						<h4>My contribution</h4>
+						<span>{story.role}</span>
+					</div>
+					<p>{story.contribution}</p>
+					{story.context && (
+						<p className="archive-project-context">{story.context}</p>
+					)}
+					<dl>
+						{story.focus.map((focus) => (
+							<div key={focus.title}>
+								<dt>{focus.title}</dt>
+								<dd>{focus.description}</dd>
+							</div>
+						))}
+					</dl>
+				</div>
 			)}
 		</li>
 	);

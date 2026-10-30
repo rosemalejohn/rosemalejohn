@@ -1,9 +1,7 @@
-import Image from "next/image";
+import "./overview.css";
 import Link from "next/link";
 import { Arrow } from "./components/Arrow";
-import Container from "./components/Container";
-import { FeaturedProject } from "./components/FeaturedProject";
-import ProjectRow from "./components/ProjectRow";
+import { ProjectExplorer } from "./components/ProjectExplorer";
 import Recommendations from "./components/Recommendations";
 import StackGrid from "./components/StackGrid";
 import Work from "./components/Work";
@@ -20,190 +18,167 @@ const socials = [
 
 export default function Home() {
 	return (
-		<>
-			<section className="hero">
-				<Container>
-					<div className="hero-grid">
-						<div className="hero-copy">
-							<h1>
-								Rosemale-John
-								<span className="hero-role">Full-stack AI engineer.</span>
-							</h1>
-							<p className="hero-description">
-								I turn ambitious ideas into products people use every day. From
-								the first line of code to the systems behind it all.
-							</p>
-							<div className="hero-actions">
-								<a href="#work" className="button-primary">
-									Explore my work <Arrow />
-								</a>
-								<a href="mailto:rosemalejohn@gmail.com" className="text-link">
-									Get in touch <Arrow diagonal />
-								</a>
-							</div>
-							<p className="availability">
-								<span />
-								Open to contract &amp; full-time roles
-							</p>
-						</div>
-						<figure className="hero-portrait">
-							<Image
-								src="/me.png"
-								alt="Rosemale-John at a café with his laptop"
-								width={512}
-								height={512}
-								priority
-								sizes="(max-width: 760px) 90vw, 360px"
-							/>
-							<figcaption>
-								<span>Philippines</span>
-								<span>UTC+8</span>
-							</figcaption>
-						</figure>
-					</div>
-					<div className="hero-footnote">
-						<p>Building for the web since 2016.</p>
-						<p>Laravel &amp; AWS at the core. Thoughtful interfaces on top.</p>
-					</div>
-				</Container>
-			</section>
-
-			<section id="work" className="work-section section-space">
-				<Container>
-					<div className="section-intro">
-						<div>
-							<h2>
-								Selected work<span className="heading-dot">.</span>
-							</h2>
-							<p>Real products. From first commit to everyday use.</p>
-						</div>
-						<Link href="/projects" className="text-link">
-							All {projects.length} projects <Arrow />
-						</Link>
-					</div>
-					<div className="featured-grid">
-						{featuredProjects.slice(0, 2).map((project, index) => (
-							<FeaturedProject
-								key={project.name}
-								project={project}
-								kind={index === 0 ? "music" : "tennis"}
-							/>
-						))}
-					</div>
-					<ul className="project-list">
-						{featuredProjects.slice(2).map((project) => (
-							<ProjectRow key={project.name} project={project} />
-						))}
-					</ul>
-					<p className="additional-work">
-						Also built for{" "}
-						<a href="https://f45training.com/" target="_blank" rel="noreferrer">
-							F45 Training <Arrow diagonal />
-						</a>
+		<div className="portfolio-content overview-content">
+			<section className="overview-intro" aria-labelledby="intro-heading">
+				<div className="overview-topline">
+					<span className="eyebrow">Engineering / Products / People</span>
+					<p className="availability">
+						<span aria-hidden="true" />
+						Open to work.
 					</p>
-				</Container>
+				</div>
+				<h1 id="intro-heading">Web applications. Built end to end.</h1>
+				<p className="overview-lead">
+					I’m Rosemale-John. I build production applications, lead developers,
+					and create tools that help teams do better work.
+				</p>
+				<div className="overview-intro-footer">
+					<a href="mailto:rosemalejohn@gmail.com" className="button-primary">
+						Let’s work together <Arrow diagonal />
+					</a>
+					<p>
+						<span className="intro-tenure">
+							Building for the web since 2016
+						</span>
+					</p>
+				</div>
 			</section>
 
-			<section id="about" className="about-section section-space">
-				<Container>
-					<div className="about-intro">
-						<h2>
-							A little about <br />
-							the person behind <br />
-							<em>the products.</em>
-						</h2>
-						<div>
-							<p className="about-lead">
-								Ten years of taking products from an empty repository to
-								something people open every day.
-							</p>
-							<p>
-								I’m a full-stack engineer based in the Philippines. My work
-								spans marketplaces, fitness platforms, social apps, and the
-								infrastructure that keeps them running.
-							</p>
-							<p>
-								Laravel and AWS underneath. Vue, Nuxt, React, and Next.js on
-								top. Comfortable across the stack, from the interface to
-								deployment.
-							</p>
-							<div className="social-links">
-								{socials.map((social) => (
-									<a
-										data-testid={social.name}
-										key={social.name}
-										href={social.href}
-										target="_blank"
-										rel="noreferrer"
-									>
-										{social.label}
-										<Arrow diagonal />
-									</a>
-								))}
-							</div>
-						</div>
+			<nav className="content-jump-nav" aria-label="On this page">
+				<span>Explore</span>
+				<a href="#work">
+					Selected work <Arrow />
+				</a>
+				<a href="#experience">
+					Experience <Arrow />
+				</a>
+				<a href="#toolkit">
+					Toolkit <Arrow />
+				</a>
+			</nav>
+
+			<section
+				id="work"
+				className="main-section"
+				aria-labelledby="work-heading"
+			>
+				<div className="main-section-heading">
+					<div>
+						<h2 id="work-heading">Inside the work</h2>
+						<p>Select a product to explore my contribution.</p>
 					</div>
-					<div className="experience-block">
-						<div className="section-intro">
-							<h2>Experience</h2>
-							<span className="section-note">2016 — present</span>
-						</div>
-						<Work />
-					</div>
-				</Container>
+					<Link href="/projects" className="text-link">
+						All {projects.length} projects <Arrow />
+					</Link>
+				</div>
+				<ProjectExplorer projects={featuredProjects} />
+				<p className="work-footnote">
+					Also contributed to{" "}
+					<a href="https://f45training.com/" target="_blank" rel="noreferrer">
+						F45 Training <Arrow diagonal />
+					</a>{" "}
+					and other products across fitness, commerce, and community.
+				</p>
 			</section>
 
-			<section className="section-space toolkit-section">
-				<Container>
-					<div className="section-intro">
-						<div>
-							<h2>The tools behind the work.</h2>
-							<p>A full stack, chosen to fit the product.</p>
-						</div>
+			<section
+				id="about"
+				className="main-section profile-about"
+				aria-labelledby="about-heading"
+			>
+				<div>
+					<p className="eyebrow">A little context</p>
+					<h2 id="about-heading">Across the stack. Alongside the team.</h2>
+				</div>
+				<div className="profile-about-copy">
+					<p>
+						Since 2016, I’ve worked on marketplaces, fitness platforms, social
+						apps, and the systems behind them.
+					</p>
+					<p>
+						My work goes beyond implementation: mentoring developers, reviewing
+						code, supporting production, and building AI-assisted workflows for
+						the team.
+					</p>
+					<div className="profile-about-meta">
+						<span>Philippines</span>
+						<span>Remote · Contract &amp; full-time</span>
 					</div>
-					<StackGrid />
-				</Container>
-			</section>
-			<section className="recommendation-section">
-				<Container>
-					<h2>From the people I’ve worked with.</h2>
-					<Recommendations />
-				</Container>
-			</section>
-			<section id="contact" className="contact-section">
-				<Container>
-					<div className="contact-grid">
-						<div>
-							<h2>
-								Have something
-								<br />
-								in mind? <em>Let’s talk.</em>
-							</h2>
-							<a href="mailto:rosemalejohn@gmail.com" className="contact-email">
-								rosemalejohn@gmail.com <Arrow diagonal />
-							</a>
-						</div>
-						<div className="contact-details">
-							<p className="availability">
-								<span />
-								Open to work.
-							</p>
-							<p>
-								Contract or full time, remote from the Philippines. UTC+8, with
-								a full working day of overlap with Australia and Singapore.
-							</p>
+					<div className="social-links">
+						{socials.map((social) => (
 							<a
-								href="https://linkedin.com/in/rosemalejohn"
+								data-testid={social.name}
+								key={social.name}
+								href={social.href}
 								target="_blank"
 								rel="noreferrer"
-								className="text-link"
 							>
-								Connect on LinkedIn <Arrow diagonal />
+								{social.label} <Arrow diagonal />
 							</a>
-						</div>
+						))}
 					</div>
-				</Container>
+				</div>
 			</section>
-		</>
+
+			<section
+				id="experience"
+				className="main-section"
+				aria-labelledby="experience-heading"
+			>
+				<div className="main-section-heading">
+					<div>
+						<h2 id="experience-heading">Experience, in context</h2>
+						<p>Open a role to see what I worked on.</p>
+					</div>
+					<span className="section-note">2016 — present</span>
+				</div>
+				<Work />
+			</section>
+
+			<section
+				id="toolkit"
+				className="main-section overview-toolkit"
+				aria-labelledby="toolkit-heading"
+			>
+				<div className="main-section-heading">
+					<div>
+						<h2 id="toolkit-heading">The toolkit</h2>
+						<p>
+							Across interfaces, application logic, services, and
+							infrastructure.
+						</p>
+					</div>
+				</div>
+				<StackGrid />
+			</section>
+
+			<section
+				className="main-section overview-recommendation"
+				aria-labelledby="recommendation-heading"
+			>
+				<div className="main-section-heading">
+					<h2 id="recommendation-heading">Working together</h2>
+				</div>
+				<Recommendations />
+			</section>
+
+			<section
+				id="contact"
+				className="overview-contact"
+				aria-labelledby="contact-heading"
+			>
+				<div>
+					<p className="eyebrow">Have a project or role in mind?</p>
+					<h2 id="contact-heading">Let’s talk it through.</h2>
+					<p>
+						Available for remote contract and full-time work, with working hours
+						that overlap Australia and Singapore.
+					</p>
+				</div>
+				<a href="mailto:rosemalejohn@gmail.com" className="overview-email">
+					rosemalejohn@gmail.com <Arrow diagonal />
+				</a>
+			</section>
+		</div>
 	);
 }

@@ -13,11 +13,13 @@ beforeAll(() => {
 });
 
 test("home page should have necessary text", () => {
-	const texts: string[] = [
-		"Full-stack AI engineer.",
-		"Philippines",
-		"Open to work.",
-	];
+	expect(
+		screen.getByRole("heading", {
+			level: 1,
+			name: "Web applications. Built end to end.",
+		}),
+	).toBeDefined();
+	const texts: string[] = ["Philippines", "Open to work."];
 
 	texts.forEach((text: string) => {
 		expect(screen.getByText(text)).toBeDefined();
@@ -34,9 +36,10 @@ test("home page should preserve links to shipped products", () => {
 	];
 
 	shipped.forEach((name: string) => {
-		// Featured names appear in both the artwork and the linked heading.
-		const [projectMention] = screen.getAllByText(name);
-		expect(projectMention.closest("a")).not.toBeNull();
+		const link = screen.getByRole("link", {
+			name: name === "F45 Training" ? name : `Visit ${name}`,
+		});
+		expect(link.getAttribute("href")).toMatch(/^https:\/\//);
 	});
 });
 
